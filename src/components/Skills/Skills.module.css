@@ -1,0 +1,30 @@
+.skills {
+    background: rgb(10, 10, 10);
+}
+
+.skillsList {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    width: 100%;
+}
+
+.content {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+@media(min-width: 900px) {
+    .skillsList {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(min-width: 1024px) {
+    .skillsList {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

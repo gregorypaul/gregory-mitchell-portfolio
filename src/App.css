@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Poppins:wght@400;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background: #0D0F11;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;  
+    line-height: 26px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .split-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.codeParticle {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 500;
+}
+/* 
+.main-wrapper {
+    background: url(../public/projects/top-bg.svg) no-repeat center 600px;
+    -webkit-background-size: 100% auto;
+    background-size: 100% auto;
+} */
+
+.section {
+  padding: 120px 24px;
+}
+
+.noPadding {
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 16px;
+}
+
+a, a:link, a:active {
+    text-decoration: none;
+}
+
+.project-links {
+    display: flex;
+    gap: 14px;
+    margin-top: auto;
+}
+
+.other .project-links {
+    display: flex;
+    margin-top: auto;
+}
+
+.project-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: 1px solid #374151;
+    font-family: monospace;
+    font-size: 14px;
+    color: #d1d5db;
+    transition: all .2s ease;
+    text-decoration: none;
+}
+
+.other .project-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    gap: 3px;
+    padding: 4px 6px;
+    font-size: 10px;
+}
+
+.project-links a:hover {
+    border-color: #00D3F3;
+    color: #00D3F3;
+}
+
+.project-links .demo {
+    background: #00D3F3;
+    color: black;
+    border: none;
+}
+
+.project-links .demo:hover {
+    background: #00D3F3;
+}
+
+
+.other > h2 {
+    font-size:2rem;
+}
+
+span.tech {
+    padding: 2px 6px;
+    background-color: rgba(34, 211, 238, 0.1);
+    border: 1px solid rgba(34, 211, 238, 0.3);
+    color: rgb(34, 211, 238);
+    font-size: 10px;
+    border-radius: 6px;
+    font-family: monospace;
+    width: auto;
+}
+
+.header {
+    margin-bottom: 80px;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.prompt {
+    color: #fff;
+    margin-right: 10px;
+}
+
+.command {
+    color: #00D3F3;
+}
+
+.subtitle {
+    color: #6a7282;
+    font-size:18px;
+    max-width: 42rem;
+}
+
+.headerWrapper {
+    flex-flow: column;
+    justify-content: center;
+    max-width: 1280px;
+    display: flex;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+article {
+    margin-bottom: 30px;
+}

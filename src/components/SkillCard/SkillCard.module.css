@@ -1,0 +1,64 @@
+.prompt {
+    color: #fff;
+    margin-right: 10px;
+}
+
+.command {
+    color: #00D3F3;
+}
+
+.subtitle {
+    color: #6a7282;
+    font-size:18px;
+    max-width: 42rem;
+}
+
+.card {
+  border: 1px solid rgba(31, 41, 55, 1);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  border-color: rgba(34, 211, 238, 0.5);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.description {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+.techStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 14px;
+}
+
+.tech {
+    display: flex;
+    align-items: center;
+    gap:8px;
+}
+
+.flexContainer {
+    display: flex; 
+    align-items: center; 
+    gap: 6px; 
+    margin-bottom: 20px;
+}

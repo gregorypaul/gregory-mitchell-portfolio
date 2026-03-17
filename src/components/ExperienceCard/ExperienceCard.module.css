@@ -1,0 +1,122 @@
+.prompt {
+    color: #fff;
+    margin-right: 10px;
+}
+
+.command {
+    color: #00D3F3;
+}
+
+.subtitle {
+    color: #6a7282;
+    font-size:18px;
+    max-width: 42rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    background: #0f0f0f;
+    border: 1px solid #222;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+    transition: all 800ms ease-in-out;
+}
+
+.card:hover {
+    border-color: #22d3ee;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.titleHeaderLeft {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    flex-direction: column;
+}
+
+.titleCompanyHeader {
+    display: flex;
+    align-items: center;
+    gap: 8px;   
+}
+
+.titleCompanyHeader h3 {
+    margin-bottom: 0;
+    font-size: 28px
+}
+
+.titleCompanyHeaderText {
+    font-size: 24px;
+}
+
+.titleHeaderRight {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom:8px;
+}
+
+.content {
+    padding: 1.25rem;
+    width: 100%;
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.description {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+.trending {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.techStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 14px;
+}
+
+.achievements {
+    color: #9ca3af;
+    margin-bottom: 14px;
+}
+
+.achievements ul {
+    list-style-type: none;
+}
+
+.achievements li {
+    margin-bottom: 5px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.briefCase, .calendar, .trendingUp, .trending span, .achievements span:first-child {
+    color: #00D3F3;
+}
+
+.card .tech {
+    display: flex;
+    align-items: center;
+    gap:8px;
+}

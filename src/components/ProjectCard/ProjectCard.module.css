@@ -1,0 +1,118 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    background: #0f0f0f;
+    border: 1px solid #222;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+    transition: all 800ms ease-in-out;
+}
+
+.card:hover {
+    border-color: #22d3ee;
+}
+
+/* smaller visual weight */
+.imageWrapper {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+}
+
+.imageWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.description {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    line-height: 1.5;
+}
+
+.techStack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.tech {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.45rem;
+    border: 1px solid #333;
+    border-radius: 6px;
+}
+
+/* THIS IS THE IMPORTANT PART */
+.links {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.links a {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.techStack {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.links {
+    display: flex;
+    gap: 14px;
+}
+
+.links a{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:8px 14px;
+    border-radius:6px;
+    border:1px solid #374151;
+    font-family:monospace;
+    font-size:14px;
+    color:#d1d5db;
+    transition:all .2s ease;
+    outline: none;
+}
+
+.links a:hover{
+    border-color:#98c5f8;
+    color:#98c5f8;
+}
+
+.links .demo {
+    background:#79B8FF;
+    color:black;
+    border:none;
+}
+
+.links a.demo:hover{
+    background:#98c5f8;
+    color: black;
+}

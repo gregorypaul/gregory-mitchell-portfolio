@@ -1,0 +1,53 @@
+.headerWrapper {
+    flex-flow: column;
+    justify-content: center;
+    max-width: 1280px;
+    display: flex;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.experience {
+    background: rgb(10, 10, 10)
+}
+
+.experienceRow {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+@media(min-width: 1024px) {
+    .experienceList {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.experienceList {
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+.prompt {
+    color: #fff;
+    margin-right: 10px;
+}
+
+.command {
+    color: #00D3F3;
+}
+
+.subtitle {
+    color: #6a7282;
+    font-size:18px;
+    max-width: 42rem;
+}
