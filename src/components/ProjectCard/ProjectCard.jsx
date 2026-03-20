@@ -26,7 +26,7 @@ function ProjectCard({ project }) {
                 </h3>
 
                 <p className={styles.description}>
-                    {description}
+                    {description.slice(0, 100) }...
                 </p>
 
                 <div className={styles.techStack}>

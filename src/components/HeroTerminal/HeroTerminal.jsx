@@ -61,10 +61,19 @@ export default function HeroTerminal() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+    
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
 
-}, []);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     return (
         <section ref={heroRef} className={styles.hero}>            
@@ -75,8 +84,7 @@ export default function HeroTerminal() {
 
                 <div className={styles.backgroundGlow}></div>
 
-                <FloatingParticles styles={styles} />
-
+                {!isMobile && <FloatingParticles styles={styles} />}
                 <ParallaxLayer mouse={isActive} strenth="30">
                     <div className={styles.content} ref={parallaxRef}>
                         <div

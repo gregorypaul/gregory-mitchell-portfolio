@@ -1,0 +1,90 @@
+.contact {
+    border-top: 1px solid rgba(148,163,184,0.25);
+    position: relative;
+}
+
+/* keep your row system */
+.contactRow {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.content {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* CTA BLOCK */
+.ctaBlock {
+    text-align: center;
+    margin-top: 64px;
+}
+
+/* BIG HERO STYLE HEADING */
+.ctaHeading {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -1px;
+
+    background: linear-gradient(
+        90deg,
+        #38bdf8,   /* sky-400 */
+        #22d3ee    /* cyan-400 */
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* supporting text */
+.ctaText {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #9ca3af;
+}
+
+/* CTA button (consistent with your system) */
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 36px;
+    padding: 14px 32px;
+
+    border-radius: 999px;
+    font-family: monospace;
+    font-size: 15px;
+
+    background: linear-gradient(
+        90deg,
+        #0ea5e9,   /* blue-500 */
+        #22d3ee    /* cyan-400 */
+    );
+
+    color: black;
+
+    border: none;
+    text-decoration: none;
+
+    transition: all 0.2s ease;
+}
+
+.ctaButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(34, 211, 238, 0.35);
+}
+
+.ctaButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(168,85,247,0.35);
+}

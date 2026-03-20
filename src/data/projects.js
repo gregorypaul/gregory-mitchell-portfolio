@@ -33,27 +33,38 @@ const projects = [
     align: 'left'
     },
     {
-    title: "Movie App3",
-    type: "React App",
-    description: "React application for browsing movies using the TMDB API.",
-    tech: ["React", "Node.js", "CSS Modules"],
-    demo: "https://movie-app.gregory-mitchell.com",
-    github: "https://github.com/gregorypaul",
-    image: '/public/projects/movie-app-dashboard.jpg',
+    title: "IQPC Corporate",
+    description: "Led the front-end rebuild of a global enterprise platform, introducing modular templates and reusable UI patterns to improve scalability and maintainability across multiple properties.",
+    image: "/public/projects/iqpc-corp-thumb.webp",
+    tech: ["PHP", "Laravel", "Bootstrap", "HTML", "CSS", "jQuery", "VueJS"],
+    github: "N/A",
+    demo: "https://www.iqpc.com",
     featured: false,
-    align: 'right'
-
+    align: "left",
     },
     {
-    title: "Movie App4",
-    type: "React App",
-    description: "React application for browsing movies using the TMDB API.",
-    tech: ["React", "Node.js", "CSS Modules"],
-    demo: "https://movie-app.gregory-mitchell.com",
-    github: "https://github.com/gregorypaul",
-    image: '/public/projects/movie-app-dashboard.jpg',
+    title: "Automotive Tire Technology 2023",
+    description: "Designed event branding and marketing assets for a global automotive engineering summit, delivering cohesive visual identity across digital and promotional materials.",
+    image: "/public/projects/automotive-technology-2023-thumb.webp",
+    tech: ["Branding", "Graphic Design", "Visual Identity"],
+    github: "",
+    demo: "",
     featured: false,
-    align: 'left'
+    align: "right",
+    category: "branding",
+    type: "client"
+    },
+    {
+    title: "Braking Systems USA 2023",
+    description: "Developed branding and visual identity for a global automotive conference, creating cohesive design assets across digital and event materials.",
+    image: "/public/projects/braking-systems-usa-2023-thumb.webp",
+    tech: ["Branding", "Logo Design", "Visual Identity"],
+    github: "",
+    demo: "",
+    featured: false,
+    align: "left",
+    category: "branding",
+    type: "client"
     }
 ]
 

@@ -2,6 +2,7 @@
     position: sticky;
     min-height: 80vh;
     display: flex;
+    padding-top: 128px;
     z-index:1;
     align-items: center;
     justify-content: center;
@@ -34,6 +35,22 @@
     opacity: 0.2;
     pointer-events: none;
     background:radial-gradient(circle at center,rgba(56, 189, 248, 0.08),transparent 55%);
+}
+
+@media (max-width: 768px) {
+    .content {
+        text-align: center;
+        align-items: center;
+    }
+
+    .socials {
+        justify-content: center;
+    }
+
+    .description {
+        max-width: 320px;
+        margin: 0 auto;
+    }
 }
 
 .content {
@@ -245,13 +262,13 @@
     height: 52px;
     border-radius: 14px;
     border: 1px solid rgba(148, 163, 184, 0.25);
-    color: #85E89D;
+    color: #04D3F3;
     transition: all 0.2s ease;
 }
 
 .socialIcon:hover {
-    border-color: rgba(133, 232, 157, 1);
-    color: #85E89D;
+    border-color: #04D3F3;
+    color: #04D3F3;
     transform: translateY(-2px);
 }
 

@@ -97,7 +97,7 @@ h1,h2 {
 
 @media(min-width: 1024px) {
     .otherProjectList {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
     }
 }
 

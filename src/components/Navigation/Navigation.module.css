@@ -1,0 +1,120 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 24px;
+    background: transparent;
+    transition:
+        background 0.3s ease,
+        backdrop-filter 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.scrolled {
+    background: rgba(10, 10, 10, 0.80);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.scrolled::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(to right,transparent, #22d3ee,transparent);
+    opacity: 0.5;
+}
+
+.inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: monospace;
+}
+
+.prompt {
+    color: #22d3ee;
+}
+
+.name {
+    display: flex;
+    color: #e5e7eb;
+}
+
+@media (max-width: 768px) {
+    .navInner {
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        font-size: 10px;
+    }
+
+    .logo {
+        text-align: center;
+    }
+
+    .name {
+        display: none;
+    }
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.links a {
+    font-family: monospace;
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+
+.links a:hover {
+    color: #22d3ee;
+}
+
+.contact {
+    padding: 6px 12px;
+    border: 1px solid #22d3ee;
+    border-radius: 6px;
+    color: #22d3ee;
+}
+
+.contact:hover {
+    background: rgba(34, 211, 238, 0.1);
+}
+
+.scrolled {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.6;
+    }
+    to {
+        opacity: 1;
+    }
+}
