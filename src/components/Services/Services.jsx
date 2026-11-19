@@ -1,6 +1,6 @@
 import styles from "./Services.module.css";
 import services from "../../data/services";
-import { mailtoHref } from "../../data/site";
+import { mailtoHref, siteConfig } from "../../data/site";
 
 function Services() {
   return (
@@ -11,6 +11,9 @@ function Services() {
         <p className="subtitle">
           Website help for shops and offices in Lake Elsinore and across the Inland Empire. Tell me what the site does today and what is broken. There is no price list on this page.
         </p>
+        <a className={styles.localLink} href={siteConfig.websitesPath}>
+          For local businesses →
+        </a>
       </div>
 
       <div className={styles.row}>

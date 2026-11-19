@@ -17,6 +17,14 @@ Other scripts:
 
 The page uses in-page anchors (`#projects`, `#services`, `#contact`). It does not use React Router, so Apache does not need a rewrite to `index.html`. This repo does not ship an `.htaccess`. Whatever `.htaccess` is already on the server stays there.
 
+## Local business page
+
+`websites/index.html` is a second Vite entry. The build writes `dist/websites/index.html`. HostGator serves that file at [https://gregory-mitchell.com/websites/](https://gregory-mitchell.com/websites/) with DirectoryIndex, so no rewrite rule is required. Relative asset URLs (`../assets/...`) come from `base: "./"`.
+
+The deploy workflow uploads the whole `dist/` folder and does not exclude `websites/`. The portfolio homepage is still `dist/index.html`.
+
+In local dev the page is at [http://localhost:5173/websites/](http://localhost:5173/websites/). The Services section links to it with “For local businesses →”.
+
 ## Deploy to HostGator
 
 `.github/workflows/deploy.yml` installs dependencies, builds, and uploads `dist/` with [SamKirkland/FTP-Deploy-Action](https://github.com/SamKirkland/FTP-Deploy-Action) v4.4.0 (pinned to commit `110f9186c050f71550953127052e77650219c287`).

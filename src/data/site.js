@@ -22,9 +22,20 @@ export const siteConfig = {
   github: "https://github.com/gregorypaul",
   linkedin: "https://www.linkedin.com/in/gregory-mitchell-dev",
   siteUrl: "https://gregory-mitchell.com/",
+  // Relative path from the portfolio homepage. Works with base: "./".
+  websitesPath: "websites/",
+  websitesUrl: "https://gregory-mitchell.com/websites/",
 };
 
 export function mailtoHref(subject) {
   const query = subject ? `?subject=${encodeURIComponent(subject)}` : "";
   return `mailto:${siteConfig.email}${query}`;
+}
+
+export function telHref() {
+  return `tel:${siteConfig.phoneTel}`;
+}
+
+export function smsHref() {
+  return `sms:${siteConfig.phoneTel}`;
 }
