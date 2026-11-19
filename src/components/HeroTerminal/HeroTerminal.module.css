@@ -47,9 +47,11 @@
         justify-content: center;
     }
 
-    .description {
-        max-width: 320px;
+    .description,
+    .location {
+        max-width: 100%;
         margin: 0 auto;
+        padding: 0 8px;
     }
     .cta {
         color: #000;
@@ -112,7 +114,15 @@
     font-size: 20px;
     color: #fff;
     line-height: 1.6;
-    max-width: 520px;
+    max-width: 640px;
+}
+
+.location {
+    font-size: 16px;
+    color: #9ca3af;
+    line-height: 1.6;
+    max-width: 640px;
+    margin: 0;
 }
 
 .cta {
@@ -123,6 +133,9 @@
     font-size: 18px;
     cursor: pointer;
     outline: none;
+    color: #0a0a0a;
+    font-weight: 600;
+    text-decoration: none;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -146,8 +159,10 @@
 @media (max-width: 768px) {
 
     .hero {
-        padding-top: 80px;
-        padding-bottom: 80px;
+        align-items: flex-start;
+        min-height: auto;
+        padding-top: 176px;
+        padding-bottom: 64px;
     }
 
     .content {

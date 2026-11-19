@@ -1,4 +1,5 @@
 import styles from "./Contact.module.css";
+import { mailtoHref, siteConfig } from "../../data/site";
 
 function Contact() {
     return (
@@ -26,11 +27,17 @@ function Contact() {
                         </h3>
 
                         <p className={styles.ctaText}>
-                            I&apos;m always interested in hearing about new projects and opportunities.
+                            For a remote contract or a local website, email is the direct line.
+                            I read it myself.
+                        </p>
+
+                        <p className={styles.details}>
+                            <a href={mailtoHref("Portfolio inquiry")}>{siteConfig.email}</a>
+                            <a href={`tel:${siteConfig.phoneTel}`}>{siteConfig.phoneDisplay}</a>
                         </p>
 
                         <a
-                            href="mailto:gregory@example.com"
+                            href={mailtoHref("Portfolio inquiry")}
                             className={styles.ctaButton}
                         >
                             Get in Touch

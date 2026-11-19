@@ -1,5 +1,5 @@
 import styles from "./ProjectCard.module.css"
-import { ExternalLink, Github } from "lucide-react"
+import ProjectLinks from "../ProjectLinks/ProjectLinks"
 
 function ProjectCard({ project }) {
 
@@ -9,8 +9,14 @@ function ProjectCard({ project }) {
         image,
         tech,
         github,
-        demo
+        demo,
+        demoLabel,
+        caseStudy,
     } = project
+
+    const summary = description.length > 140
+        ? `${description.slice(0, 140).trim()}…`
+        : description
 
     return (
         <article className={styles.card}>
@@ -26,7 +32,7 @@ function ProjectCard({ project }) {
                 </h3>
 
                 <p className={styles.description}>
-                    {description.slice(0, 100) }...
+                    {summary}
                 </p>
 
                 <div className={styles.techStack}>
@@ -37,17 +43,12 @@ function ProjectCard({ project }) {
                     ))}
                 </div>
 
-                <div className="project-links">
-                    <a href={github} target="_blank" rel="noreferrer">
-                        <Github size={16} />
-                        Code
-                    </a>
-
-                    <a href={demo} target="_blank" rel="noreferrer">
-                        <ExternalLink size={16} />
-                        Demo
-                    </a>
-                </div>
+                <ProjectLinks
+                    github={github}
+                    demo={demo}
+                    demoLabel={demoLabel}
+                    caseStudy={caseStudy}
+                />
 
             </div>
 

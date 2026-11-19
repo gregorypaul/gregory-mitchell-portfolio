@@ -1,0 +1,76 @@
+# Deploy the Vite build to HostGator over FTP.
+# Runs on every push to main, and when started by hand from the Actions tab.
+# A manual run only uploads when it is started from main.
+# Any other branch is skipped, so a pull request cannot write to the server.
+#
+# Required repository secrets (Settings → Secrets and variables → Actions):
+#   FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
+#
+# Remote folder: FTP_SERVER_DIR, default ./public_html/
+# Confirm that path before the first deploy. If the FTP account is already
+# rooted inside public_html, set the repository variable FTP_SERVER_DIR to ./
+# or the files land in public_html/public_html. The value must end with /.
+
+name: Deploy to HostGator
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hostgator-ftp
+  cancel-in-progress: false
+
+env:
+  FTP_SERVER_DIR: ${{ vars.FTP_SERVER_DIR || './public_html/' }}
+
+jobs:
+  deploy:
+    name: Build and upload
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload dist over FTP
+        uses: SamKirkland/FTP-Deploy-Action@110f9186c050f71550953127052e77650219c287 # v4.4.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          local-dir: ./dist/
+          server-dir: ${{ env.FTP_SERVER_DIR }}
+          # Leave this false. true deletes everything in server-dir first,
+          # including excluded paths such as the dishly folder and .htaccess.
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.htaccess
+            **/dishly/**
+            **/movie-app/**
+            **/bon-appetit/**
+            **/bon-appetite/**
+            **/cgi-bin/**
+            **/.well-known/**

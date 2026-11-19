@@ -1,5 +1,5 @@
 import styles from './ExperienceCard.module.css'
-import { Code2, Briefcase, Calendar, TrendingUp } from 'lucide-react';
+import { Briefcase, Calendar, TrendingUp } from 'lucide-react';
 
 function ExperienceCard({experience}) {
     const {
@@ -7,6 +7,7 @@ function ExperienceCard({experience}) {
         description,
         period,
         company,
+        location,
         technologies,
         achievements,
 
@@ -21,7 +22,9 @@ function ExperienceCard({experience}) {
                             <Briefcase className={styles.briefCase}/>
                             <h3>{title}</h3>
                         </div>
-                        <p className={styles.titleCompanyHeaderText}>{company}</p>
+                        <p className={styles.titleCompanyHeaderText}>
+                            {company}{location ? ` · ${location}` : ""}
+                        </p>
                     </div>
                     <div className={styles.titleHeaderRight}>
                         <div className={`card ${styles.tech}`}>

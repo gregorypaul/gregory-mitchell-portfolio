@@ -1,7 +1,6 @@
 import styles  from './Experience.module.css'
-import { Briefcase, Calendar, TrendingUp } from 'lucide-react'
 import ExperienceCard from '../ExperienceCard/ExperienceCard'
-import experience from '../../data/experiences'
+import experience, { education } from '../../data/experiences'
 
 function Experience() {
     return(
@@ -12,7 +11,7 @@ function Experience() {
                 <h2 className="title">Experience</h2>
 
                 <p className="subtitle">
-                    My journey through the tech industry, building products and leading teams..
+                    Roles and dates as they appear on my resume.
                 </p>
             </div>
             <div className={styles.experienceRow}>
@@ -21,10 +20,25 @@ function Experience() {
                         {experience.map((experiences) => (
                             <ExperienceCard 
                                 experience={experiences} 
-                                key={experiences.title}
-                                index={experiences.id}
+                                key={experiences.id}
                             />
                         ))}
+                    </div>
+
+                    <div className={styles.education}>
+                        <h3>Education</h3>
+                        <ul>
+                            {education.map((item) => (
+                                <li key={item.credential}>
+                                    <strong>{item.credential}</strong>
+                                    <span>
+                                        {item.school}
+                                        {item.period ? ` · ${item.period}` : ""}
+                                        {item.detail ? ` · ${item.detail}` : ""}
+                                    </span>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
             </div>

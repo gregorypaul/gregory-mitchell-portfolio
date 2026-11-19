@@ -108,7 +108,11 @@
     margin-bottom: 5px;
     display: flex;
     gap: 8px;
-    align-items: center;
+    align-items: flex-start;
+}
+
+.achievements li span:first-child {
+    flex-shrink: 0;
 }
 
 .briefCase, .calendar, .trendingUp, .trending span, .achievements span:first-child {
@@ -119,4 +123,19 @@
     display: flex;
     align-items: center;
     gap:8px;
+}
+
+@media (max-width: 700px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .titleCompanyHeader h3 {
+        font-size: 22px;
+    }
+
+    .titleCompanyHeaderText {
+        font-size: 18px;
+    }
 }

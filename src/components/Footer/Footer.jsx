@@ -1,5 +1,6 @@
 import styles from "./Footer.module.css";
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { mailtoHref, siteConfig } from "../../data/site";
 
 function Footer() {
     return (
@@ -10,7 +11,6 @@ function Footer() {
 
                     <div className={styles.grid}>
 
-                        {/* LEFT */}
                         <div className={styles.brand}>
                             <div className={styles.logo}>
                                 <span className={styles.prompt}>›_</span>
@@ -18,35 +18,34 @@ function Footer() {
                             </div>
 
                             <p className={styles.description}>
-                                Full-Stack Developer crafting scalable solutions to complex problems.
+                                Frontend-focused full-stack developer in Lake Elsinore, California. Remote contracts and Inland Empire website work.
                             </p>
                         </div>
 
-                        {/* NAV */}
                         <div className={styles.nav}>
                             <h4 className={styles.heading}>NAVIGATE</h4>
 
                             <div className={styles.links}>
                                 <a href="#projects">./projects</a>
                                 <a href="#case-study-dishly">./casestudy</a>
+                                <a href="#services">./services</a>
                                 <a href="#experience">./experience</a>
                                 <a href="#skills">./skills</a>
-                                <a href="#contact" className={styles.contact}>./contact</a>
+                                <a href="#contact">./contact</a>
                             </div>
                         </div>
 
-                        {/* CONNECT */}
                         <div className={styles.connect}>
                             <h4 className={styles.heading}>CONNECT</h4>
 
                             <div className={styles.icons}>
-                                <a href="https://github.com/gregorypaul" className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
+                                <a href={siteConfig.github} className={styles.socialIcon} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                                     <Github size={20} />
                                 </a>
-                                <a href="https://www.linkedin.com/in/gregory-mitchell-dev#" target="_blank" rel="noopener noreferrer">
+                                <a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                                     <Linkedin size={20} />
                                 </a>
-                                <a href="?subject=Portfolio Inquiry&body=Hi Gregory,%0D%0A%0D%0AI came across your portfolio and would love to connect." className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
+                                <a href={mailtoHref("Portfolio inquiry")} className={styles.socialIcon} aria-label={`Email ${siteConfig.email}`}>
                                     <Mail size={20} />
                                 </a>
                             </div>
@@ -57,14 +56,13 @@ function Footer() {
                 </div>
             </div>
 
-            {/* BOTTOM BAR */}
             <div className={styles.bottomRow}>
                 <div className={styles.content}>
 
                     <div className={styles.bottom}>
 
                         <p>
-                            © {new Date().getFullYear()} Gregory Mitchell • Built with 💙 and React
+                            © {new Date().getFullYear()} Gregory Mitchell · Lake Elsinore, CA
                         </p>
 
                         <span className={styles.command}>

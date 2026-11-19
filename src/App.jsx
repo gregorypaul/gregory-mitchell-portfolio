@@ -1,4 +1,3 @@
-import Hero from "./components/Hero/Hero"
 import Projects from "./components/Projects/Projects"
 import Navigation from "./components/Navigation/Navigation"
 import heroData from "./data/hero"
@@ -12,6 +11,7 @@ import Skills from "./components/Skills/Skills"
 import Contact from "./components/Contact/Contact"
 import Footer from "./components/Footer/Footer"
 import CaseStudyDishly from "./components/CaseStudyDishly/CaseStudyDishly"
+import Services from "./components/Services/Services"
 
 function App() {
   return (
@@ -35,6 +35,11 @@ function App() {
             <Section noPadding>
                 <Container size="full" padding={false}>
                     <CaseStudyDishly/>  
+                </Container>
+            </Section>
+            <Section noPadding>
+                <Container size="full" padding={false}>
+                    <Services/>  
                 </Container>
             </Section>
             <Section noPadding>

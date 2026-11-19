@@ -22,6 +22,12 @@
     padding-right: 24px;
 }
 
+.content {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 @media(min-width: 1024px) {
     .experienceList {
         position: relative;
@@ -50,4 +56,37 @@
     color: #6a7282;
     font-size:18px;
     max-width: 42rem;
+}
+
+.education {
+    margin-top: 12px;
+    margin-bottom: 36px;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 1.25rem;
+    background: #0f0f0f;
+}
+
+.education h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+.education ul {
+    list-style: none;
+}
+
+.education li {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 14px;
+}
+
+.education li:last-child {
+    margin-bottom: 0;
+}
+
+.education span {
+    color: #9ca3af;
 }

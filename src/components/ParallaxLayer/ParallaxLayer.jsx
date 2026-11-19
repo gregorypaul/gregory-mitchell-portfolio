@@ -1,5 +1,5 @@
-import { useMotion } from "../../motion/MotionProvider.jsx";
-import { useRef } from "react";
+import { useMotion } from "../../motion/useMotion";
+import { useEffect, useRef, useState } from "react";
 
 export default function ParallaxLayer({
     children,
@@ -12,23 +12,47 @@ export default function ParallaxLayer({
 
     const { mouse: mousePos } = useMotion();
     const layerRef = useRef(null);
+    const [translateY, setTranslateY] = useState(0);
 
     const rotateX = mouse ? mousePos.y * -strength : 0;
     const rotateY = mouse ? mousePos.x * strength : 0;
 
-    let translateY = 0;
+    useEffect(() => {
+        if (!scroll) {
+            return undefined;
+        }
 
-    if (scroll && layerRef.current) {
+        let frame = 0;
 
-        const rect = layerRef.current.getBoundingClientRect();
+        const update = () => {
+            const node = layerRef.current;
+            if (!node) {
+                return;
+            }
 
-        const viewportCenter = window.innerHeight / 2;
-        const elementCenter = rect.top + rect.height / 2;
+            const rect = node.getBoundingClientRect();
+            const viewportCenter = window.innerHeight / 2;
+            const elementCenter = rect.top + rect.height / 2;
+            const next = (elementCenter - viewportCenter) * speed;
 
-        const distance = elementCenter - viewportCenter;
+            setTranslateY((current) => (Math.abs(current - next) < 0.5 ? current : next));
+        };
 
-        translateY = distance * speed;
-    }
+        const onScroll = () => {
+            cancelAnimationFrame(frame);
+            frame = requestAnimationFrame(update);
+        };
+
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll);
+
+        return () => {
+            cancelAnimationFrame(frame);
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("resize", onScroll);
+        };
+    }, [scroll, speed]);
 
     const transform = `
         rotateX(${rotateX}deg)

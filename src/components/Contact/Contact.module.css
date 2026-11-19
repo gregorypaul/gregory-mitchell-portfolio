@@ -52,6 +52,24 @@
     color: #9ca3af;
 }
 
+.details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 24px;
+    margin-top: 20px;
+}
+
+.details a {
+    color: #e5e7eb;
+    font-family: monospace;
+    text-decoration: none;
+}
+
+.details a:hover {
+    color: #22d3ee;
+}
+
 /* CTA button (consistent with your system) */
 .ctaButton {
     display: inline-flex;
