@@ -118,3 +118,21 @@
         opacity: 1;
     }
 }
+
+@media (max-width: 768px) {
+  nav {
+    overflow-x: auto;
+    display: flex;
+    gap: 16px;
+    padding-bottom: 8px;
+  }
+
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav a {
+    white-space: nowrap;
+    font-size: 13px;
+  }
+}

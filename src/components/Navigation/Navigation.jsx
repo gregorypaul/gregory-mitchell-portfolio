@@ -22,15 +22,12 @@ function Navigation() {
                         <span className={styles.prompt}>›_</span>
                         <span className={styles.name}>gregory.dev</span>
                     </div>
-
                     <div className={styles.links}>
                         <a href="#projects">./projects</a>
+                        <a href="#case-study-dishly">./casestudy</a>
                         <a href="#experience">./experience</a>
                         <a href="#skills">./skills</a>
-
-                        <a href="#contact" className={styles.contact}>
-                            Contact
-                        </a>
+                        <a href="#contact" className={styles.contact}>./contact</a>
                     </div>
 
                 </div>

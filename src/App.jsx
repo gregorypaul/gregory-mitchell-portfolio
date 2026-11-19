@@ -11,6 +11,7 @@ import Experience from "./components/Experience/Experience"
 import Skills from "./components/Skills/Skills"
 import Contact from "./components/Contact/Contact"
 import Footer from "./components/Footer/Footer"
+import CaseStudyDishly from "./components/CaseStudyDishly/CaseStudyDishly"
 
 function App() {
   return (
@@ -29,6 +30,11 @@ function App() {
             <Section noPadding>
                 <Container size="full" padding={false}>
                     <Projects/>  
+                </Container>
+            </Section>
+            <Section noPadding>
+                <Container size="full" padding={false}>
+                    <CaseStudyDishly/>  
                 </Container>
             </Section>
             <Section noPadding>

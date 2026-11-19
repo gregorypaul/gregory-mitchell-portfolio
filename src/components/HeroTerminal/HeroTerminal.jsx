@@ -63,7 +63,7 @@ export default function HeroTerminal() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-    
+
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
         const checkMobile = () => {
@@ -117,25 +117,22 @@ export default function HeroTerminal() {
                             className={`${styles.socials} ${styles.reveal}`}
                             style={{ "--delay": "320ms" }}
                         >
-                            <a href="#" className={styles.socialIcon}>
+                            <a href="https://github.com/gregorypaul" className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
                                 <Github size={20} />
                             </a>
 
-                            <a href="#" className={styles.socialIcon}>
+                            <a href="https://www.linkedin.com/in/gregory-mitchell-dev#" className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
                                 <Linkedin size={20} />
                             </a>
 
-                            <a href="#" className={styles.socialIcon}>
-                                <Mail size={20} />
-                            </a>
+                                <a href="?subject=Portfolio Inquiry&body=Hi Gregory,%0D%0A%0D%0AI came across your portfolio and would love to connect." className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
+                                    <Mail size={20} />
+                                </a>
                         </div>
 
-                        <button
-                            className={`${styles.cta} ${styles.reveal}`}
-                            style={{ "--delay": "380ms" }}
-                        >
+                        <a href="#projects" className={`${styles.cta} ${styles.reveal}`} style={{ "--delay": "380ms" }}>
                             <span>View Projects →</span>
-                        </button>
+                        </a>
                     </div>
                 </ParallaxLayer>
 

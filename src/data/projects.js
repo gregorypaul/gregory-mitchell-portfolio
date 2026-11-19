@@ -6,7 +6,7 @@ const projects = [
     tech: ["laravel", "PHP", "MySQL", "Figment Auth", "Bootstrap 5", "The MealDB API"],
     demo: "https://dishly.gregory-mitchell.com",
     github: "https://github.com/gregorypaul",
-    image: '/public/projects/dishly-homepage-thumb.webp',
+    image: '/projects/dishly-homepage-thumb.webp',
     featured: true,
     align: 'right'
     },
@@ -17,7 +17,7 @@ const projects = [
     tech: ["React", "Node.js", "CSS Modules", "TMDB API"],
     demo: "https://movie-app.gregory-mitchell.com",
     github: "https://github.com/gregorypaul",
-    image: '/public/projects/movie-app-dashboard-thumb.webp',
+    image: '/projects/movie-app-dashboard-thumb.webp',
     featured: false,
     align: 'right'
     },
@@ -28,14 +28,14 @@ const projects = [
     tech: ["React", "REST API", "Styled Components"],
     demo: "https://bon-appetit.gregory-mitchell.com",
     github: "https://github.com/gregorypaul",
-    image: '/public/projects/bon-appetite-thumb.webp',
+    image: '/projects/bon-appetite-thumb.webp',
     featured: false,
     align: 'left'
     },
     {
     title: "IQPC Corporate",
     description: "Led the front-end rebuild of a global enterprise platform, introducing modular templates and reusable UI patterns to improve scalability and maintainability across multiple properties.",
-    image: "/public/projects/iqpc-corp-thumb.webp",
+    image: "/projects/iqpc-corp-thumb.webp",
     tech: ["PHP", "Laravel", "Bootstrap", "HTML", "CSS", "jQuery", "VueJS"],
     github: "N/A",
     demo: "https://www.iqpc.com",
@@ -45,7 +45,7 @@ const projects = [
     {
     title: "Automotive Tire Technology 2023",
     description: "Designed event branding and marketing assets for a global automotive engineering summit, delivering cohesive visual identity across digital and promotional materials.",
-    image: "/public/projects/automotive-technology-2023-thumb.webp",
+    image: "/projects/automotive-technology-2023-thumb.webp",
     tech: ["Branding", "Graphic Design", "Visual Identity"],
     github: "",
     demo: "",
@@ -57,7 +57,7 @@ const projects = [
     {
     title: "Braking Systems USA 2023",
     description: "Developed branding and visual identity for a global automotive conference, creating cohesive design assets across digital and event materials.",
-    image: "/public/projects/braking-systems-usa-2023-thumb.webp",
+    image: "/projects/braking-systems-usa-2023-thumb.webp",
     tech: ["Branding", "Logo Design", "Visual Identity"],
     github: "",
     demo: "",

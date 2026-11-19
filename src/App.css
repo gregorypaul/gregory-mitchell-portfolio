@@ -179,3 +179,22 @@ article {
 #contact {
     scroll-margin-top: 100px;
 }
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+}
