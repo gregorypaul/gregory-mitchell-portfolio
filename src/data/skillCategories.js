@@ -1,71 +1,33 @@
-import { Code2, Terminal, Database, Cloud, GitBranch, Boxes } from "lucide-react";
+import { Code2, Terminal, Database, Boxes } from "lucide-react";
 
 const skillCategories = [
+  {
+    category: "Core",
+    icon: Terminal,
+    skills: ["JavaScript", "PHP", "REST APIs", "Git"],
+  },
   {
     category: "Frontend",
     icon: Code2,
     skills: [
-      "JavaScript (ES6+)",
       "TypeScript",
       "React",
-      "Vue",
-      "AngularJS",
-      "HTML",
-      "CSS"
+      "Vue.js 2/3",
+      "HTML5",
+      "CSS3",
+      "Responsive web development",
+      "Bootstrap 5",
     ],
   },
   {
-    category: "Backend",
-    icon: Terminal,
-    skills: [
-      "PHP",
-      "Laravel",
-      "REST APIs",
-      "Backend Integrations",
-      "Secure Data Workflows"
-    ],
-  },
-  {
-    category: "Database",
-    icon: Database,
-    skills: [
-      "MongoDB",
-      "MySQL",
-      "Relational Database Design",
-      "Query Optimization"
-    ],
-  },
-  {
-    category: "Cloud & Infrastructure",
-    icon: Cloud,
-    skills: [
-      "AWS",
-      "Cloud Deployments",
-      "CI/CD Pipelines",
-      "Production Systems"
-    ],
-  },
-  {
-    category: "Tools",
-    icon: GitBranch,
-    skills: [
-      "Git",
-      "GitHub",
-      "Code Reviews",
-      "Debugging",
-      "Testing Workflows"
-    ],
-  },
-  {
-    category: "Architecture & Practices",
+    category: "Backend & APIs",
     icon: Boxes,
-    skills: [
-      "System Architecture",
-      "SDLC",
-      "Accessibility Awareness",
-      "Technical Documentation",
-      "Performance Optimization"
-    ],
+    skills: ["Node.js", "Express", "Laravel", "JSON", "Third-party API integrations"],
+  },
+  {
+    category: "Data",
+    icon: Database,
+    skills: ["SQL", "MySQL", "PostgreSQL", "MongoDB"],
   },
 ];
 

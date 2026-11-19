@@ -1,5 +1,6 @@
 import styles from "./FeaturedProject.module.css"
-import { ExternalLink, Github, Code2 } from 'lucide-react';
+import { Code2 } from 'lucide-react';
+import ProjectLinks from "../ProjectLinks/ProjectLinks";
 
 function FeaturedProject({ project, index }) {
 
@@ -43,10 +44,12 @@ function FeaturedProject({ project, index }) {
                         ))}
                     </div>
 
-                    <div className="project-links">
-                        <a href={project.github} target="_blank" rel="noopener noreferrer"><Github />Code</a>
-                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className={styles.demo}><ExternalLink />Live Demo</a>
-                    </div>
+                    <ProjectLinks
+                        github={project.github}
+                        demo={project.demo}
+                        demoLabel={project.demoLabel}
+                        caseStudy={project.caseStudy}
+                    />
 
                 </div>
                 <div className={styles.bottomAccent}></div>

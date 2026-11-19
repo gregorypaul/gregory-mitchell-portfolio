@@ -1,6 +1,5 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
-
-const MotionContext = createContext(null);
+import { useEffect, useRef, useState } from "react";
+import { MotionContext } from "./MotionContext";
 
 export function MotionProvider({ children }) {
     const [mouse, setMouse] = useState({ x: 0, y: 0 });
@@ -51,8 +50,4 @@ export function MotionProvider({ children }) {
             {children}
         </MotionContext.Provider>
     );
-}
-
-export function useMotion() {
-    return useContext(MotionContext);
 }

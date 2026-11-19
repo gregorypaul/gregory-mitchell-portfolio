@@ -4,8 +4,9 @@ import { ChevronDown, Github, Linkedin, Mail } from "lucide-react";
 import ParallaxLayer from "../ParallaxLayer/ParallaxLayer";
 import FloatingParticles from "../FloatingParticles/FloatingParticles";
 import { useRef } from "react";
+import { mailtoHref, siteConfig } from "../../data/site";
 
-export default function HeroTerminal() {
+export default function HeroTerminal({ data }) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [visibleText, setVisibleText] = useState("");
     const command = "whoami";
@@ -102,36 +103,42 @@ export default function HeroTerminal() {
                             className={`${styles.heading} ${styles.reveal}`}
                             style={{ "--delay": "120ms" }}
                         >
-                            Gregory Mitchell
+                            {data.name}
                         </h1>
 
                         <p
                             className={`${styles.description} ${styles.reveal}`}
                             style={{ "--delay": "220ms" }}
                         >
-                            Full-stack engineer building scalable products
-                            and developer tools.
+                            {data.title}
+                        </p>
+
+                        <p
+                            className={`${styles.location} ${styles.reveal}`}
+                            style={{ "--delay": "280ms" }}
+                        >
+                            {data.location}
                         </p>
 
                         <div
                             className={`${styles.socials} ${styles.reveal}`}
                             style={{ "--delay": "320ms" }}
                         >
-                            <a href="https://github.com/gregorypaul" className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
+                            <a href={siteConfig.github} className={styles.socialIcon} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                                 <Github size={20} />
                             </a>
 
-                            <a href="https://www.linkedin.com/in/gregory-mitchell-dev#" className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
+                            <a href={siteConfig.linkedin} className={styles.socialIcon} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                                 <Linkedin size={20} />
                             </a>
 
-                                <a href="?subject=Portfolio Inquiry&body=Hi Gregory,%0D%0A%0D%0AI came across your portfolio and would love to connect." className={styles.socialIcon} target="_blank" rel="noopener noreferrer">
-                                    <Mail size={20} />
-                                </a>
+                            <a href={mailtoHref("Portfolio inquiry")} className={styles.socialIcon} aria-label={`Email ${siteConfig.email}`}>
+                                <Mail size={20} />
+                            </a>
                         </div>
 
                         <a href="#projects" className={`${styles.cta} ${styles.reveal}`} style={{ "--delay": "380ms" }}>
-                            <span>View Projects →</span>
+                            <span>{data.cta} →</span>
                         </a>
                     </div>
                 </ParallaxLayer>
