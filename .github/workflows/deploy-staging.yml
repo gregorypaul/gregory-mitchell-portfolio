@@ -7,9 +7,11 @@
 #   FTP_SERVER, FTP_USERNAME, FTP_PASSWORD
 #
 # Prod uploads to FTP_SERVER_DIR (default ./public_html/).
-# Staging uploads to that directory plus staging/ (default ./public_html/staging/).
+# The HostGator subdomain document root is public_html/website_89bff753,
+# so staging uploads to FTP_SERVER_DIR plus website_89bff753/
+# (default ./public_html/website_89bff753/).
 # If the FTP account is already rooted inside public_html, FTP_SERVER_DIR is ./
-# and staging lands in ./staging/. The value must end with /.
+# and staging lands in ./website_89bff753/. The value must end with /.
 #
 # Sync state is .ftp-deploy-sync-state-staging.json so it does not collide
 # with prod's .ftp-deploy-sync-state.json.
@@ -58,7 +60,7 @@ jobs:
         run: |
           printf 'User-agent: *\nDisallow: /\n' > dist/robots.txt
           find dist -name '*.html' -print0 | xargs -0 sed -i 's|<head>|<head>\n    <meta name="robots" content="noindex, nofollow">|'
-          # cPanel Directory Privacy owns .htaccess in public_html/staging.
+          # cPanel Directory Privacy owns .htaccess in the subdomain folder.
           # Never upload one from this build.
           find dist -name '.htaccess' -delete
           find dist -name '.htpasswd' -delete
@@ -66,7 +68,7 @@ jobs:
       - name: Set staging server directory
         run: |
           base="${FTP_SERVER_DIR%/}/"
-          echo "FTP_STAGING_DIR=${base}staging/" >> "$GITHUB_ENV"
+          echo "FTP_STAGING_DIR=${base}website_89bff753/" >> "$GITHUB_ENV"
 
       - name: Upload dist over FTP
         uses: SamKirkland/FTP-Deploy-Action@110f9186c050f71550953127052e77650219c287 # v4.4.0
@@ -85,7 +87,7 @@ jobs:
           dangerous-clean-slate: false
           # Excluded paths are left out of both upload and delete.
           # .htpasswd normally lives outside public_html; exclude it anyway
-          # so a copy inside staging/ is never replaced.
+          # so a copy inside the subdomain folder is never replaced.
           exclude: |
             **/.git*
             **/.git*/**
