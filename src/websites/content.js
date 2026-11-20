@@ -56,14 +56,32 @@ export const experienceTitle = "Experience you can count on";
 export const experienceIntro =
   "Before working with local businesses, I spent years running websites that couldn't afford to go down.";
 
-export const eventsCompare = {
-  caption:
-    "Before and after: an internal events system I redesigned at IQPC, used daily by staff.",
-  beforeAlt:
-    "The older IQPC events admin, showing the filters and the first rows of the events list",
-  afterAlt:
-    "The redesigned IQPC events admin, with the same filters and events list in a cleaner layout",
-};
+export const caseStudies = [
+  {
+    id: "pex",
+    tab: "Video library",
+    caption: "On-demand video library, PEX Network (IQPC)",
+    afterAlt:
+      "The redesigned PEX Network on-demand video library, with a card grid of video stills",
+    outcomes: [
+      "The grid uses a still for each video instead of the same red play button on every tile.",
+      "Search, tags, topics, and events sit in one filter bar.",
+      "A title and date sit under each still so a person can scan the library.",
+    ],
+  },
+  {
+    id: "speaker",
+    tab: "Speaker editor",
+    caption: "Speaker profile editor, IQPC event platform",
+    afterAlt:
+      "The redesigned IQPC speaker profile editor, with tabs, a status, and a publish panel",
+    outcomes: [
+      "The long single page is split into tabs.",
+      "Save, publish, and unpublish sit together in one panel.",
+      "The photo and published status stay on screen while the fields are edited.",
+    ],
+  },
+];
 
 export const sampleCopy = {
   sectionTitle: "What a difference a modern site makes",

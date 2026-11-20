@@ -98,7 +98,7 @@ function SummitSample() {
   const liveDemo = liveDemoUrl(DEMO_URL);
 
   return (
-    <section className="section" id="sample" aria-labelledby="sample-title">
+    <section className="section" id="local-sample" aria-labelledby="sample-title">
       <div className="wrap">
         <div className="sectionHead">
           <h2 id="sample-title">{sampleCopy.sectionTitle}</h2>
