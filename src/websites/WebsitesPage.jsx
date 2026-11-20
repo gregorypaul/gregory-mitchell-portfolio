@@ -96,6 +96,25 @@ function ContactActions() {
   );
 }
 
+function ProblemIcon({ index }) {
+  const tiles = ["tileBlue", "tileLavender", "tilePeach", "tileBlue", "tileLavender"];
+  const paths = [
+    "M4 15a8 8 0 1 1 16 0M12 15l3.2-4.2M8 19h8",
+    "M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.8.7a2 2 0 0 1 1.7 2z",
+    "M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3zm6 10l.8 2.2L21 16l-2.2.8L18 19l-.8-2.2L15 16l2.2-.8L18 13zM6 14l.7 1.8L8.5 16.5 6.7 17.2 6 19l-.7-1.8L3.5 16.5l1.8-.7L6 14z",
+    "M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z",
+    "M12 21s7-4.4 7-10a7 7 0 1 0-14 0c0 5.6 7 10 7 10zM12 11.2a2.2 2.2 0 1 0 0-4.4 2.2 2.2 0 0 0 0 4.4z",
+  ];
+
+  return (
+    <span className={`problemTile ${tiles[index]}`} aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+        <path d={paths[index]} />
+      </svg>
+    </span>
+  );
+}
+
 function PageLinks({ className }) {
   return (
     <ul className={className}>
@@ -199,23 +218,24 @@ function WebsitesPage() {
 
         <section className="section bandWhite" id="problems">
           <div className="wrap">
-            <div className="sectionHead">
+            <div className="sectionHead problemHead">
               <h2>Why your website isn't bringing in calls</h2>
               <p className="sectionIntro">
                 These are the most common problems I see on local business sites, and each one costs you customers. Here's what I fix.
               </p>
             </div>
             <ul className="problemList">
-              {problems.map((problem) => (
+              {problems.map((problem, index) => (
                 <li key={problem.title} className="problem">
+                  <ProblemIcon index={index} />
                   <h3>{problem.title}</h3>
                   <p>{problem.text}</p>
                 </li>
               ))}
               <li className="problem problemCta">
-                <a href="#review">
-                  <h3>Not sure what's wrong?</h3>
-                  <p>Get a free 15-minute website review</p>
+                <h3>Not sure what's wrong?</h3>
+                <a className="problemCtaBtn" href="#review">
+                  Get a free 15-minute website review
                 </a>
               </li>
             </ul>

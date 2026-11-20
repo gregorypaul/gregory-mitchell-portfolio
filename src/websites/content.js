@@ -119,23 +119,23 @@ export const navLinks = [
 export const problems = [
   {
     title: "It's slow.",
-    text: "If your site takes more than a few seconds to load, people hit back and call the next business. I find what's slowing it down and fix it.",
+    text: "Visitors leave after a few seconds. I find what's dragging it down and fix it.",
   },
   {
     title: "It's hard to use on a phone.",
-    text: "Text runs off the screen, buttons are too small, the menu won't open. Most of your customers find you on their phone, so that's where the site has to work, with a big tap-to-call button.",
+    text: "Most customers find you on their phone. I make it easy to read, with a big tap-to-call button.",
   },
   {
     title: "It looks outdated.",
-    text: "An old site makes a busy business look closed, or out of date. I'll give it a clean, modern look that still feels like your business.",
+    text: "An old site makes a busy business look closed. I give it a clean, modern look that still feels like you.",
   },
   {
     title: "You can't update it.",
-    text: "Changing your hours, a price, or a photo shouldn't take a week. I set it up so you can make simple edits yourself, or text me and I'll do it.",
+    text: "Hours, prices and photos shouldn't take a week. Edit them yourself, or text me and I'll do it.",
   },
   {
     title: "Customers can't find you on Google.",
-    text: "People nearby search for what you do and call your competitor. I set up the basics Google looks for: clear service pages, the right local words, fast loading, and a phone-friendly site. Nobody can honestly guarantee #1, and I won't, but I'll give you a real shot at it.",
+    text: "I set up the basics Google looks for: service pages, local keywords, speed. No fake #1 promises.",
   },
 ];
 

@@ -494,7 +494,8 @@ body {
 .problemList {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 1.25rem;
+  align-items: stretch;
 }
 
 .packageGrid,
@@ -510,7 +511,6 @@ body {
   min-width: 0;
 }
 
-.problem,
 .proof {
   display: grid;
   gap: 0.45rem;
@@ -519,41 +519,105 @@ body {
   border-radius: 18px;
 }
 
-.problem h3,
+.problemHead h2 {
+  max-width: none;
+  text-wrap: balance;
+}
+
+.problem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+  padding: 28px;
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 10px 24px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.problem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.05), 0 16px 36px rgba(15, 23, 42, 0.08);
+}
+
+.problemTile {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  color: var(--accent);
+}
+
+.tileBlue {
+  background: linear-gradient(160deg, #e7eeff, #f7f8ff);
+}
+
+.tileLavender {
+  background: linear-gradient(160deg, #efe8ff, #f8f6ff);
+}
+
+.tilePeach {
+  background: linear-gradient(160deg, #ffe8dc, #fff7f3);
+  color: #9a4b32;
+}
+
+.problem h3 {
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.problem p {
+  margin-top: auto;
+  color: #526077;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.problemCta {
+  justify-content: flex-end;
+  gap: 1.25rem;
+  background: #24308a;
+  border-color: transparent;
+  box-shadow: 0 10px 28px rgba(36, 48, 138, 0.22);
+}
+
+.problemCta h3 {
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+.problemCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  background: #fff;
+  color: #24308a;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+}
+
+.problemCtaBtn:hover {
+  background: #f4f6ff;
+  color: #24308a;
+}
+
 .proof h4 {
   font-size: 1.12rem;
   font-weight: 500;
   letter-spacing: -0.02em;
-}
-
-.problemCta {
-  padding: 0;
-}
-
-.problemCta a {
-  display: grid;
-  gap: 0.4rem;
-  align-content: center;
-  height: 100%;
-  min-height: 100%;
-  padding: 1.35rem 1.3rem;
-  color: var(--accent);
-  text-decoration: none;
-  border-radius: 18px;
-}
-
-.problemCta h3,
-.problemCta p {
-  color: var(--accent);
-}
-
-.problemCta p {
-  text-decoration: underline;
-  text-underline-offset: 0.16em;
-}
-
-.problemCta a:hover {
-  background: var(--accent-soft);
 }
 
 .package {
@@ -868,6 +932,10 @@ body {
     grid-template-columns: 1fr 1fr;
   }
 
+  .problemList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .heroGrid,
   .featureRow {
     grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
@@ -933,6 +1001,12 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .problem,
+  .problem:hover {
+    transition: none;
+    transform: none;
   }
 }
 
