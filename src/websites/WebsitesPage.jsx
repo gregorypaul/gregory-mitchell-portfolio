@@ -158,11 +158,6 @@ function WebsitesPage() {
 
   return (
     <div className="page">
-      <div className="glows" aria-hidden="true">
-        <span className="blob blobBlue" />
-        <span className="blob blobViolet" />
-        <span className="blob blobPeach" />
-      </div>
       <a className="skip" href="#main">
         Skip to content
       </a>
@@ -202,13 +197,15 @@ function WebsitesPage() {
         </section>
 
         <section className="reviewStrip" id="free-review" aria-labelledby="free-review-title">
-          <div className="wrap reviewStripInner">
+          <div className="wrap">
+            <div className="panel reviewCard">
             <h2 id="free-review-title">{reviewOffer.title}</h2>
             <p className="offerText">{reviewOffer.text}</p>
             <ContactActions />
             <p className="reassure">
               I answer the phone and read every email myself. No call centers, no sales team.
             </p>
+            </div>
           </div>
         </section>
 
@@ -305,7 +302,7 @@ function WebsitesPage() {
         <section className="section" id="about" aria-labelledby="about-title">
           <div className="wrap">
             <div className="featureRow">
-              <div className="featureCopy">
+              <div className="featureCopy panel">
                 <h2 id="about-title">{aboutTitle}</h2>
                 <div className="aboutCopy">
                   {aboutParagraphs.map((paragraph) => (
@@ -364,12 +361,14 @@ function WebsitesPage() {
         </section>
 
         <section className="section ctaBand" id="review">
-          <div className="wrap ctaInner">
-            <h2>Get your free 15-minute website review</h2>
-            <p>
-              Text or email me your website address. I'll look at it, alone or with you on a quick call, and tell you exactly what I'd fix first. It's free, and there's no obligation.
-            </p>
-            <ContactActions />
+          <div className="wrap">
+            <div className="panel ctaCard">
+              <h2>Get your free 15-minute website review</h2>
+              <p>
+                Text or email me your website address. I'll look at it, alone or with you on a quick call, and tell you exactly what I'd fix first. It's free, and there's no obligation.
+              </p>
+              <ContactActions />
+            </div>
           </div>
         </section>
       </main>

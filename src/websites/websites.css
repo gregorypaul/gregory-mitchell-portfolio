@@ -44,19 +44,6 @@ body {
   background: #fff;
 }
 
-.glows {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.page > :not(.glows) {
-  position: relative;
-  z-index: 1;
-}
-
 .page > .skip {
   position: fixed;
   z-index: 40;
@@ -65,37 +52,6 @@ body {
 .page > .siteHeader {
   position: sticky;
   z-index: 20;
-}
-
-.blob {
-  position: absolute;
-  display: block;
-  border-radius: 50%;
-  filter: blur(110px);
-}
-
-.blobBlue {
-  width: 34rem;
-  height: 34rem;
-  top: -6rem;
-  right: -4rem;
-  background: rgba(168, 196, 255, 0.9);
-}
-
-.blobViolet {
-  width: 28rem;
-  height: 28rem;
-  top: 46rem;
-  left: -10rem;
-  background: rgba(196, 176, 255, 0.72);
-}
-
-.blobPeach {
-  width: 26rem;
-  height: 26rem;
-  bottom: 6rem;
-  right: -6rem;
-  background: rgba(255, 198, 170, 0.78);
 }
 
 .page p,
@@ -306,6 +262,34 @@ body {
   display: none;
 }
 
+.section,
+.reviewStrip {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.section::before,
+.reviewStrip::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: min(46rem, 100vw);
+  height: min(46rem, 100vw);
+  border-radius: 50%;
+  top: 8%;
+  left: -14rem;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(199, 210, 228, 0.95) 0%, rgba(219, 227, 239, 0.45) 46%, transparent 72%);
+  filter: blur(110px);
+}
+
+.section:nth-of-type(even)::before,
+.reviewStrip:nth-of-type(even)::before {
+  left: auto;
+  right: -14rem;
+}
+
 .section {
   padding: 4.5rem 0;
   scroll-margin-top: 5.5rem;
@@ -399,17 +383,38 @@ body {
 .sectionHead {
   display: grid;
   gap: 0.7rem;
-  margin-bottom: 2.25rem;
-  max-width: 40rem;
+  justify-items: center;
+  margin: 0 auto 2.25rem;
+  max-width: 45rem;
+  text-align: center;
 }
 
 .sectionHead h2,
-.ctaInner h2,
 .featureCopy h2,
-.featureCopy h3 {
+.featureCopy h3,
+.ctaCard h2 {
   font-size: clamp(1.7rem, 3vw, 2.15rem);
   font-weight: 400;
-  max-width: 16em;
+  max-width: none;
+  text-wrap: balance;
+}
+
+.sectionHead .sectionIntro {
+  max-width: 42rem;
+}
+
+.panel {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 10px 24px rgba(15, 23, 42, 0.04);
+}
+
+.caseNote {
+  max-width: 42rem;
+  margin: 1.25rem auto 0;
+  padding: 1.5rem 1.5rem 1.35rem;
+  text-align: center;
 }
 
 .btn {
@@ -474,21 +479,30 @@ body {
 }
 
 .reviewStrip {
-  background: var(--white);
+  background: transparent;
   padding: 4.5rem 0;
   scroll-margin-top: 5.5rem;
 }
 
-.reviewStripInner {
+.reviewCard {
   display: grid;
   gap: 1rem;
-  justify-items: start;
+  justify-items: center;
+  max-width: 42rem;
+  margin-inline: auto;
+  padding: 2rem 1.75rem;
+  text-align: center;
+}
+
+.reviewCard .actions {
+  justify-content: center;
 }
 
 .reviewStrip h2 {
-  max-width: 16em;
+  max-width: none;
   font-size: clamp(1.7rem, 3vw, 2.15rem);
   font-weight: 400;
+  text-wrap: balance;
 }
 
 .problemList {
@@ -625,10 +639,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
-  background: var(--card);
-  border: 1px solid transparent;
-  border-radius: 22px;
-  padding: 1.6rem 1.35rem 1.35rem;
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 20px;
+  padding: 1.75rem 1.5rem 1.5rem;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 10px 24px rgba(15, 23, 42, 0.04);
 }
 
 .packagePopular {
@@ -752,6 +767,7 @@ body {
   display: grid;
   gap: 0.9rem;
   justify-items: start;
+  padding: 1.75rem;
 }
 
 .aboutCopy {
@@ -834,11 +850,23 @@ body {
   border-top: 1px solid var(--line);
 }
 
-.ctaInner {
+.ctaCard {
   display: grid;
   gap: 1rem;
-  justify-items: start;
-  max-width: 40rem;
+  justify-items: center;
+  max-width: 42rem;
+  margin-inline: auto;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.ctaCard p {
+  max-width: 38rem;
+  color: var(--muted);
+}
+
+.ctaCard .actions {
+  justify-content: center;
 }
 
 .siteFooter {

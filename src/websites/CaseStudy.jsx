@@ -135,18 +135,20 @@ function CaseStudy() {
         </div>
         <div role="tabpanel" id="case-panel" aria-labelledby={`case-tab-${study.id}`}>
           <Compare key={study.id} study={study} />
-          {study.description ? (
-            <>
-              <h3 className={styles.caseTitle}>{study.title}</h3>
-              <p className={styles.caseText}>{study.description}</p>
-            </>
-          ) : (
-            <ul className={styles.outcomes}>
-              {study.outcomes.map((line) => (
-                <li key={line}>{line}</li>
-              ))}
-            </ul>
-          )}
+          <div className="panel caseNote">
+            {study.description ? (
+              <>
+                <h3 className={styles.caseTitle}>{study.title}</h3>
+                <p className={styles.caseText}>{study.description}</p>
+              </>
+            ) : (
+              <ul className={styles.outcomes}>
+                {study.outcomes.map((line) => (
+                  <li key={line}>{line}</li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
       </div>
     </section>

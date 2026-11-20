@@ -145,7 +145,7 @@
 }
 
 .caseTitle {
-  margin: 1.25rem 0 0;
+  margin: 0;
   font-size: 1.25rem;
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -160,7 +160,7 @@
 .outcomes {
   display: grid;
   gap: 0.65rem;
-  margin: 1.25rem 0 0;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
