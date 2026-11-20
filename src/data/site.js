@@ -27,6 +27,14 @@ export const siteConfig = {
   websitesUrl: "https://gregory-mitchell.com/websites/",
 };
 
+/**
+ * DEMO_URL — live address of the Summit Air Heating & Cooling sample site.
+ * Leave this null until that host is actually up (demo.gregory-mitchell.com
+ * is not live yet). The websites page renders "See the live demo" only when
+ * this is a non-empty URL string. Do not point it at a site that is down.
+ */
+export const DEMO_URL = null;
+
 export function mailtoHref(subject) {
   const query = subject ? `?subject=${encodeURIComponent(subject)}` : "";
   return `mailto:${siteConfig.email}${query}`;
