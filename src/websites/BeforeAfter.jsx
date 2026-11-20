@@ -53,7 +53,7 @@ function OutdatedSite() {
             <NotSecureIcon />
             Not secure
           </span>
-          <span className={styles.url}>http://my-website.example</span>
+          <span className={styles.url}>http://ourcompany-site.com</span>
         </div>
         <div className={styles.crop}>
           <div className={styles.oldSite}>
@@ -76,15 +76,9 @@ function OutdatedSite() {
                 built for a desktop monitor.
               </p>
               <p>Please view this site on a computer. Phones have to scroll sideways.</p>
-              <div className={styles.oldPhotos}>
-                <span>Photo</span>
-                <span>Photo</span>
-                <span>Photo</span>
-                <span>Photo</span>
-              </div>
               <p className={styles.oldPhoneLine}>Phone: (555) 010-0199</p>
               <p>Fax: (555) 010-0198</p>
-              <p>Email: info@example.com</p>
+              <p>Email: info@ourcompany-site.com</p>
               <p>Hours: Monday to Friday, 9am to 5pm. Leave a message if nobody picks up.</p>
               <p className={styles.oldCounter}>You are visitor number 000184</p>
               <p className={styles.oldButton}>Enter site</p>
@@ -104,7 +98,7 @@ function BeforeAfter() {
   const liveDemo = liveDemoUrl(DEMO_URL);
 
   return (
-    <section className="section bandWhite" id="sample" aria-labelledby="sample-title">
+    <section className="section" id="sample" aria-labelledby="sample-title">
       <div className="wrap">
         <div className="sectionHead">
           <h2 id="sample-title">{sampleCopy.sectionTitle}</h2>
@@ -120,6 +114,7 @@ function BeforeAfter() {
           <div className={styles.after}>
             <p className={styles.badge}>After</p>
             <h3 className={styles.slotTitle}>{sampleCopy.afterTitle}</h3>
+            <p className={styles.plainNote}>{sampleCopy.afterNote}</p>
             {liveDemo ? (
               <p className={styles.demoLink}>
                 <a href={liveDemo} target="_blank" rel="noopener noreferrer">

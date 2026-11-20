@@ -197,25 +197,6 @@
   text-align: center;
 }
 
-.oldPhotos {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  margin: 8px 0 22px;
-}
-
-.oldPhotos span {
-  display: grid;
-  place-items: center;
-  min-height: 110px;
-  border: 3px solid #666;
-  background: #d7ecf7;
-  color: #16324f;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 22px;
-  font-weight: 700;
-}
-
 .oldTable .oldPhoneLine {
   font-weight: 700;
 }

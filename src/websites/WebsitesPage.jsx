@@ -1,17 +1,26 @@
 import BeforeAfter from "./BeforeAfter.jsx";
 import headshotWebp from "../assets/websites/gregory-mitchell-320.webp";
 import headshotJpg from "../assets/websites/gregory-mitchell-320.jpg";
+import eventsBefore640 from "../assets/websites/events-before-640.webp";
+import eventsBefore1200 from "../assets/websites/events-before-1200.webp";
+import eventsAfter640 from "../assets/websites/events-after-640.webp";
+import eventsAfter1200 from "../assets/websites/events-after-1200.webp";
 import {
   aboutParagraphs,
   aboutTitle,
+  experienceIntro,
+  experienceTitle,
   navLinks,
   packages,
+  priceNote,
   problems,
   proofPoints,
   questions,
+  realWork,
   reviewOffer,
   reviewSubject,
   serviceArea,
+  serviceAreaCities,
   steps,
 } from "./content.js";
 import { mailtoHref, siteConfig, smsHref, telHref } from "../data/site.js";
@@ -84,7 +93,7 @@ function ContactActions({ tone = "onLight" }) {
         <MailIcon />
         <span className="btnText">
           <span className="btnLabel">Email</span>
-          <span className="btnDetail">{siteConfig.email}</span>
+          <span className="btnDetail">Email me</span>
         </span>
       </a>
     </div>
@@ -141,14 +150,23 @@ function WebsitesPage() {
       <main id="main" tabIndex={-1}>
         <section className="section hero" id="top">
           <div className="wrap heroGrid">
-            <p className="eyebrow">
-              {siteConfig.city}, {siteConfig.region}
-            </p>
+            <p className="eyebrow">Websites for Inland Empire businesses</p>
             <h1>Your website should bring you customers, not lose them.</h1>
             <p className="lede">
-              Local web developer in {siteConfig.city}, with 10+ years of experience.
+              I build and fix websites for local businesses so they load fast, work on phones, show up on Google, and turn visitors into calls. Local web designer in {siteConfig.city}, 10+ years of experience.
             </p>
-            <p className="serviceArea">For business owners in {serviceArea}.</p>
+            <p className="serviceArea">Serving {serviceArea}.</p>
+            <div className="heroActions">
+              <a className="btn btnPrimary" href={telHref()}>
+                <PhoneIcon />
+                <span className="btnText">
+                  <span className="btnLabel">Call or text {siteConfig.phoneDisplay}</span>
+                </span>
+              </a>
+              <a className="heroSample" href="#sample">
+                See a before & after ↓
+              </a>
+            </div>
           </div>
         </section>
 
@@ -157,7 +175,95 @@ function WebsitesPage() {
             <h2 id="free-review-title">{reviewOffer.title}</h2>
             <p className="offerText">{reviewOffer.text}</p>
             <ContactActions />
-            <p className="reassure">I answer the phone and read the email myself.</p>
+            <p className="reassure">
+              I answer the phone and read every email myself. No call centers, no sales team.
+            </p>
+          </div>
+        </section>
+
+        <BeforeAfter />
+
+        <section className="section bandWhite" id="problems">
+          <div className="wrap">
+            <div className="sectionHead">
+              <h2>Why your website isn't bringing in calls</h2>
+              <p className="sectionIntro">
+                These are the most common problems I see on local business sites, and each one costs you customers. Here's what I fix.
+              </p>
+            </div>
+            <ul className="problemList">
+              {problems.map((problem) => (
+                <li key={problem.title} className="problem">
+                  <h3>{problem.title}</h3>
+                  <p>{problem.text}</p>
+                </li>
+              ))}
+              <li className="problem problemCta">
+                <a href="#review">
+                  <h3>Not sure what's wrong?</h3>
+                  <p>Get a free 15-minute website review</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section className="section" id="packages">
+          <div className="wrap">
+            <div className="sectionHead">
+              <h2>Simple, upfront pricing</h2>
+              <p className="sectionIntro">
+                Starting prices for a typical small business site. After your free 15-minute website review you get a fixed quote, so you know the exact price before I start. No surprise bills.
+              </p>
+            </div>
+            <ul className="packageGrid">
+              {packages.map((item) => (
+                <li key={item.name} className="package">
+                  <h3>{item.name}</h3>
+                  <p className="priceBlock">
+                    <span className="priceLabel">Starting at</span>
+                    <span className="price">
+                      {item.price}
+                      {item.unit ? <span className="priceUnit">{item.unit}</span> : null}
+                    </span>
+                  </p>
+                  <p>{item.summary}</p>
+                  <ul className="points">
+                    {item.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                  <a className="btn btnPrimary" href={item.href}>
+                    {item.cta}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="priceNote">{priceNote}</p>
+          </div>
+        </section>
+
+        <section className="section bandWhite" id="process">
+          <div className="wrap">
+            <div className="sectionHead">
+              <h2>How it works</h2>
+              <p className="sectionIntro">
+                Four simple steps. You know the price before any work starts.
+              </p>
+            </div>
+            <ol className="steps">
+              {steps.map((step, index) => (
+                <li key={step.title} className="step">
+                  <span className="stepNumber" aria-hidden="true">
+                    {index + 1}
+                  </span>
+                  <h3>
+                    {step.href ? <a href={step.href}>{step.title}</a> : step.title}
+                  </h3>
+                  <p>{step.text}</p>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 
@@ -185,115 +291,58 @@ function WebsitesPage() {
                 ))}
               </div>
             </div>
-          </div>
-        </section>
-
-        <section className="section bandWhite" id="problems">
-          <div className="wrap">
-            <div className="sectionHead">
-              <h2>Problems I fix</h2>
-              <p className="sectionIntro">
-                These are the problems local owners ask me about. If the site is getting in the way, this is the work.
-              </p>
+            <div className="experienceBlock" id="proof">
+              <h3>{experienceTitle}</h3>
+              <p className="sectionIntro">{experienceIntro}</p>
+              <ul className="proofList">
+                {proofPoints.map((item) => (
+                  <li key={item.title} className="proof">
+                    <h4>{item.title}</h4>
+                    <p className="proofMeta">{item.meta}</p>
+                    <p>{item.text}</p>
+                  </li>
+                ))}
+              </ul>
+              <figure className="realWork">
+                <div className="realWorkShots">
+                  <figure>
+                    <figcaption>Before</figcaption>
+                    <img
+                      src={eventsBefore1200}
+                      srcSet={`${eventsBefore640} 640w, ${eventsBefore1200} 1200w`}
+                      sizes="(min-width: 700px) 480px, 92vw"
+                      alt={realWork.beforeAlt}
+                      width={1200}
+                      height={558}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                  <figure>
+                    <figcaption>After</figcaption>
+                    <img
+                      src={eventsAfter1200}
+                      srcSet={`${eventsAfter640} 640w, ${eventsAfter1200} 1200w`}
+                      sizes="(min-width: 700px) 480px, 92vw"
+                      alt={realWork.afterAlt}
+                      width={1200}
+                      height={643}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                </div>
+                <figcaption className="realWorkCaption">{realWork.caption}</figcaption>
+              </figure>
             </div>
-            <ul className="problemList">
-              {problems.map((problem) => (
-                <li key={problem.title} className="problem">
-                  <h3>{problem.title}</h3>
-                  <p>{problem.text}</p>
-                </li>
-              ))}
-            </ul>
           </div>
         </section>
 
-        <section className="section" id="packages">
-          <div className="wrap">
-            <div className="sectionHead">
-              <h2>Three packages</h2>
-              <p className="sectionIntro">
-                Starting prices for a typical small site. The free review turns into a fixed quote before any work starts.
-              </p>
-            </div>
-            <ul className="packageGrid">
-              {packages.map((item) => (
-                <li key={item.name} className="package">
-                  <h3>{item.name}</h3>
-                  <p className="priceBlock">
-                    <span className="priceLabel">Starting at</span>
-                    <span className="price">
-                      {item.price}
-                      {item.unit ? <span className="priceUnit">{item.unit}</span> : null}
-                    </span>
-                  </p>
-                  <p>{item.summary}</p>
-                  <ul className="points">
-                    {item.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
-                  <a className="btn btnPrimary" href={item.href}>
-                    {item.cta}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section className="section bandWhite" id="process">
-          <div className="wrap">
-            <div className="sectionHead">
-              <h2>How it works</h2>
-              <p className="sectionIntro">
-                Four steps. You know the price before I start.
-              </p>
-            </div>
-            <ol className="steps">
-              {steps.map((step, index) => (
-                <li key={step.title} className="step">
-                  <span className="stepNumber" aria-hidden="true">
-                    {index + 1}
-                  </span>
-                  <h3>
-                    {step.href ? <a href={step.href}>{step.title}</a> : step.title}
-                  </h3>
-                  <p>{step.text}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        <section className="section" id="proof">
-          <div className="wrap">
-            <div className="sectionHead">
-              <h2>Work I have done</h2>
-              <p className="sectionIntro">
-                I live in {siteConfig.city}. This is work from jobs I have held, on websites that were already live.
-              </p>
-            </div>
-            <ul className="proofList">
-              {proofPoints.map((item) => (
-                <li key={item.title} className="proof">
-                  <h3>{item.title}</h3>
-                  <p className="proofMeta">{item.meta}</p>
-                  <p>{item.text}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <BeforeAfter />
-
-        <section className="section" id="questions">
+        <section className="section bandWhite" id="questions">
           <div className="wrap">
             <div className="sectionHead">
               <h2>Common questions</h2>
-              <p className="sectionIntro">
-                A few answers before you get in touch.
-              </p>
+              <p className="sectionIntro">Quick answers. Anything else, just call or text.</p>
             </div>
             <div className="faq">
               {questions.map((item) => (
@@ -310,9 +359,9 @@ function WebsitesPage() {
 
         <section className="section ctaBand" id="review">
           <div className="wrap ctaInner">
-            <h2>Get a free website review</h2>
+            <h2>Get your free 15-minute website review</h2>
             <p>
-              Send me your site address. I will spend 15 minutes looking at it and tell you what I would fix. The review is free.
+              Text or email me your website address. I'll look at it, alone or with you on a quick call, and tell you exactly what I'd fix first. It's free, and there's no obligation.
             </p>
             <ContactActions tone="onDark" />
           </div>
@@ -325,7 +374,7 @@ function WebsitesPage() {
             <p>
               {siteConfig.city}, {siteConfig.region}
             </p>
-            <p>For business owners in {serviceArea}.</p>
+            <p>Websites for small businesses in {serviceAreaCities}, and the Inland Empire.</p>
           </div>
           <ul className="footerContact">
             <li>
