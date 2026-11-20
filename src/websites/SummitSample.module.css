@@ -271,10 +271,10 @@
   display: block;
   width: 100%;
   height: auto;
-  border: 1px solid var(--line, #e4dccf);
-  border-radius: 12px;
-  background: var(--paper, #f6f3ec);
-  box-shadow: 0 10px 28px rgba(28, 36, 48, 0.08);
+  border: 1px solid var(--line, #e6e8eb);
+  border-radius: 16px;
+  background: var(--white, #fff);
+  box-shadow: none;
 }
 
 .demoLink {

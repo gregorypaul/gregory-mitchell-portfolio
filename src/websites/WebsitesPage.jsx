@@ -6,6 +6,8 @@ import eventsBefore640 from "../assets/websites/events-before-640.webp";
 import eventsBefore1200 from "../assets/websites/events-before-1200.webp";
 import eventsAfter640 from "../assets/websites/events-after-640.webp";
 import eventsAfter1200 from "../assets/websites/events-after-1200.webp";
+import heroShot640 from "../assets/websites/summit-home-desktop-640.webp";
+import heroShot1200 from "../assets/websites/summit-home-desktop-1200.webp";
 import {
   aboutParagraphs,
   aboutTitle,
@@ -71,26 +73,24 @@ function MailIcon() {
   );
 }
 
-function ContactActions({ tone = "onLight" }) {
-  const className = tone === "onDark" ? "btn btnLight" : "btn btnPrimary";
-
+function ContactActions() {
   return (
     <div className="actions">
-      <a className={className} href={telHref()}>
+      <a className="btn btnPrimary" href={telHref()}>
         <PhoneIcon />
         <span className="btnText">
           <span className="btnLabel">Call</span>
           <span className="btnDetail">{siteConfig.phoneDisplay}</span>
         </span>
       </a>
-      <a className={className} href={smsHref()}>
+      <a className="btn btnGhost" href={smsHref()}>
         <TextIcon />
         <span className="btnText">
           <span className="btnLabel">Text</span>
           <span className="btnDetail">{siteConfig.phoneDisplay}</span>
         </span>
       </a>
-      <a className={className} href={mailtoHref(reviewSubject)}>
+      <a className="btn btnGhost" href={mailtoHref(reviewSubject)}>
         <MailIcon />
         <span className="btnText">
           <span className="btnLabel">Email</span>
@@ -151,23 +151,34 @@ function WebsitesPage() {
       <main id="main" tabIndex={-1}>
         <section className="section hero" id="top">
           <div className="wrap heroGrid">
-            <p className="eyebrow">Websites for Inland Empire businesses</p>
-            <h1>Your website should bring you customers, not lose them.</h1>
-            <p className="lede">
-              I build and fix websites for local businesses so they load fast, work on phones, show up on Google, and turn visitors into calls. Local web designer in {siteConfig.city}, 10+ years of experience.
-            </p>
-            <p className="serviceArea">Serving {serviceArea}.</p>
-            <div className="heroActions">
-              <a className="btn btnPrimary" href={telHref()}>
-                <PhoneIcon />
-                <span className="btnText">
-                  <span className="btnLabel">Call or text {siteConfig.phoneDisplay}</span>
-                </span>
-              </a>
-              <a className="heroSample" href="#sample">
-                See a before & after ↓
-              </a>
+            <div className="heroCopy">
+              <p className="eyebrow">Websites for Inland Empire businesses</p>
+              <h1>Your website should bring you customers, not lose them.</h1>
+              <p className="lede">
+                I build and fix websites for local businesses so they load fast, work on phones, show up on Google, and turn visitors into calls. Local web designer in {siteConfig.city}, 10+ years of experience.
+              </p>
+              <p className="serviceArea">Serving {serviceArea}.</p>
+              <div className="heroActions">
+                <a className="btn btnPrimary" href={telHref()}>
+                  Call or text {siteConfig.phoneDisplay}
+                </a>
+                <a className="btn btnGhost" href="#sample">
+                  See a before & after
+                </a>
+              </div>
             </div>
+            <figure className="heroVisual">
+              <img
+                src={heroShot1200}
+                srcSet={`${heroShot640} 640w, ${heroShot1200} 1200w`}
+                sizes="(min-width: 900px) 520px, 92vw"
+                alt="Desktop homepage of the Summit Air Heating & Cooling sample site, a demo business"
+                width={1200}
+                height={916}
+                fetchPriority="high"
+                decoding="async"
+              />
+            </figure>
           </div>
         </section>
 
@@ -218,8 +229,9 @@ function WebsitesPage() {
               </p>
             </div>
             <ul className="packageGrid">
-              {packages.map((item) => (
-                <li key={item.name} className="package">
+              {packages.map((item, index) => (
+                <li key={item.name} className={index === 1 ? "package packagePopular" : "package"}>
+                  {index === 1 ? <p className="popularLabel">Most popular</p> : null}
                   <h3>{item.name}</h3>
                   <p className="priceBlock">
                     <span className="priceLabel">Starting at</span>
@@ -270,32 +282,66 @@ function WebsitesPage() {
 
         <section className="section" id="about" aria-labelledby="about-title">
           <div className="wrap">
-            <div className="sectionHead">
-              <h2 id="about-title">{aboutTitle}</h2>
+            <div className="featureRow">
+              <div className="featureCopy">
+                <h2 id="about-title">{aboutTitle}</h2>
+                <div className="aboutCopy">
+                  {aboutParagraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+              <figure className="featureVisual">
+                <picture>
+                  <source srcSet={headshotWebp} type="image/webp" />
+                  <img
+                    className="headshot"
+                    src={headshotJpg}
+                    alt={siteConfig.name}
+                    width={320}
+                    height={320}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+              </figure>
             </div>
-            <div className="aboutGrid">
-              <picture>
-                <source srcSet={headshotWebp} type="image/webp" />
-                <img
-                  className="headshot"
-                  src={headshotJpg}
-                  alt={siteConfig.name}
-                  width={160}
-                  height={160}
-                  loading="lazy"
-                  decoding="async"
+            <div className="experienceBlock featureRow featureRowReverse" id="proof">
+              <div className="featureCopy">
+                <h3>{experienceTitle}</h3>
+                <p className="sectionIntro">{experienceIntro}</p>
+              </div>
+              <div className="featureVisual">
+                <BeforeAfter
+                  before={
+                    <img
+                      src={eventsBefore1200}
+                      srcSet={`${eventsBefore640} 640w, ${eventsBefore1200} 1200w`}
+                      sizes="(min-width: 860px) 240px, 92vw"
+                      alt={eventsCompare.beforeAlt}
+                      width={1200}
+                      height={558}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  }
+                  after={
+                    <img
+                      src={eventsAfter1200}
+                      srcSet={`${eventsAfter640} 640w, ${eventsAfter1200} 1200w`}
+                      sizes="(min-width: 860px) 240px, 92vw"
+                      alt={eventsCompare.afterAlt}
+                      width={1200}
+                      height={643}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  }
+                  caption={eventsCompare.caption}
                 />
-              </picture>
-              <div className="aboutCopy">
-                {aboutParagraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
               </div>
             </div>
-            <div className="experienceBlock" id="proof">
-              <h3>{experienceTitle}</h3>
-              <p className="sectionIntro">{experienceIntro}</p>
-              <ul className="proofList">
+            <ul className="proofList">
                 {proofPoints.map((item) => (
                   <li key={item.title} className="proof">
                     <h4>{item.title}</h4>
@@ -303,35 +349,7 @@ function WebsitesPage() {
                     <p>{item.text}</p>
                   </li>
                 ))}
-              </ul>
-              <BeforeAfter
-                before={
-                  <img
-                    src={eventsBefore1200}
-                    srcSet={`${eventsBefore640} 640w, ${eventsBefore1200} 1200w`}
-                    sizes="(min-width: 740px) 500px, 92vw"
-                    alt={eventsCompare.beforeAlt}
-                    width={1200}
-                    height={558}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                }
-                after={
-                  <img
-                    src={eventsAfter1200}
-                    srcSet={`${eventsAfter640} 640w, ${eventsAfter1200} 1200w`}
-                    sizes="(min-width: 740px) 500px, 92vw"
-                    alt={eventsCompare.afterAlt}
-                    width={1200}
-                    height={643}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                }
-                caption={eventsCompare.caption}
-              />
-            </div>
+            </ul>
           </div>
         </section>
 
@@ -360,7 +378,7 @@ function WebsitesPage() {
             <p>
               Text or email me your website address. I'll look at it, alone or with you on a quick call, and tell you exactly what I'd fix first. It's free, and there's no obligation.
             </p>
-            <ContactActions tone="onDark" />
+            <ContactActions />
           </div>
         </section>
       </main>

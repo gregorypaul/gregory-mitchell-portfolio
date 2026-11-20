@@ -1,15 +1,17 @@
 :root {
   --ink: #1c2430;
   --muted: #3c4a5a;
-  --paper: #f6f3ec;
-  --paper-deep: #efe8dc;
+  --paper: #f8f9fa;
   --white: #ffffff;
-  --line: #e4dccf;
-  --line-strong: #8d7f6c;
-  --teal: #0f5c6b;
-  --teal-dark: #0a4652;
-  --cyan: #00d3f3;
-  --max: 1080px;
+  --line: #e6e8eb;
+  --accent: #0f5c6b;
+  --accent-dark: #0a4652;
+  --accent-soft: #e7f3f4;
+  --teal: var(--accent);
+  --teal-dark: var(--accent-dark);
+  --card: #f8f9fa;
+  --max: 1120px;
+  --sans: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color-scheme: light;
 }
 
@@ -21,17 +23,17 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 7.5rem;
+  scroll-padding-top: 5.5rem;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
-  background: var(--paper);
+  background: var(--white);
   color: var(--ink);
-  font-family: Lato, "Segoe UI", system-ui, sans-serif;
-  font-size: 1.125rem;
+  font-family: var(--sans);
+  font-size: 1.0625rem;
   line-height: 1.6;
 }
 
@@ -51,9 +53,10 @@ body {
 .page h2,
 .page h3,
 .page h4 {
-  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
-  line-height: 1.2;
-  font-weight: 700;
+  font-family: var(--sans);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
   color: var(--ink);
 }
 
@@ -65,16 +68,17 @@ body {
 }
 
 .page a {
-  color: var(--teal);
+  color: var(--accent);
+}
+
+.page a.brand,
+.page a.headerCall,
+.page a.btnPrimary {
+  color: var(--white);
 }
 
 .page a.brand {
   color: var(--ink);
-}
-
-.page a.btnPrimary,
-.page a.headerCall {
-  color: var(--white);
 }
 
 .page a.btnPrimary:hover,
@@ -82,12 +86,12 @@ body {
   color: var(--white);
 }
 
-.page a.btnLight {
-  color: var(--teal);
+.page a.btnGhost {
+  color: var(--accent);
 }
 
-.page a.btnLight:hover {
-  color: var(--teal-dark);
+.page a.btnGhost:hover {
+  color: var(--accent-dark);
 }
 
 .wrap {
@@ -103,8 +107,7 @@ body {
   transform: translateY(-120%);
   background: var(--white);
   color: var(--ink);
-  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
   padding: 0.75rem 1rem;
   border-radius: 0 0 10px 10px;
@@ -112,10 +115,6 @@ body {
 
 .skip:focus {
   transform: none;
-}
-
-.main:focus {
-  outline: none;
 }
 
 #main:focus {
@@ -131,8 +130,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: var(--white);
-  border-top: 4px solid var(--cyan);
+  background: rgba(255, 255, 255, 0.94);
   border-bottom: 1px solid var(--line);
 }
 
@@ -140,13 +138,13 @@ body {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding-block: 0.7rem;
+  padding-block: 0.65rem;
 }
 
 .brand {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 0.05rem;
   min-width: 0;
   flex: 1;
   color: var(--ink);
@@ -154,22 +152,22 @@ body {
 }
 
 .brandName {
-  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1rem;
+  letter-spacing: -0.02em;
   line-height: 1.2;
 }
 
 .brandMeta {
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   line-height: 1.3;
 }
 
 .headerCall,
 .menu summary,
 .btn {
-  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
+  font-family: inherit;
 }
 
 .headerCall {
@@ -177,19 +175,19 @@ body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  min-height: 48px;
-  padding: 0 0.95rem;
+  min-height: 44px;
+  padding: 0 1rem;
   border-radius: 999px;
-  background: var(--teal);
+  background: var(--accent);
   color: var(--white);
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.95rem;
   white-space: nowrap;
 }
 
 .headerCall:hover {
-  background: var(--teal-dark);
+  background: var(--accent-dark);
 }
 
 .callFull {
@@ -199,13 +197,13 @@ body {
 .menu summary {
   list-style: none;
   cursor: pointer;
-  min-height: 48px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
-  padding: 0 0.9rem;
-  border: 2px solid var(--line);
+  padding: 0 0.95rem;
+  border: 1px solid var(--line);
   border-radius: 999px;
-  font-weight: 700;
+  font-weight: 600;
   background: var(--white);
   color: var(--ink);
 }
@@ -221,13 +219,12 @@ body {
 
 .menu nav {
   position: absolute;
-  top: calc(100% + 0.6rem);
+  top: calc(100% + 0.55rem);
   right: 0;
   width: min(16rem, 70vw);
   background: var(--white);
   border: 1px solid var(--line);
-  border-radius: 12px;
-  box-shadow: 0 16px 40px rgba(28, 36, 48, 0.12);
+  border-radius: 16px;
   padding: 0.35rem;
   z-index: 30;
 }
@@ -236,8 +233,7 @@ body {
 .desktopList a {
   color: var(--ink);
   text-decoration: none;
-  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .menuList a {
@@ -245,11 +241,11 @@ body {
   align-items: center;
   min-height: 44px;
   padding: 0.55rem 0.75rem;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .menuList a:hover {
-  background: var(--paper);
+  background: var(--card);
 }
 
 .desktopNav {
@@ -257,145 +253,201 @@ body {
 }
 
 .section {
-  padding: 3.25rem 0;
-  scroll-margin-top: 7.5rem;
+  padding: 4.5rem 0;
+  scroll-margin-top: 5.5rem;
+}
+
+.section + .section,
+.reviewStrip {
+  border-top: 1px solid var(--line);
 }
 
 .bandWhite {
   background: var(--white);
 }
 
+.hero {
+  padding-top: 3.25rem;
+  padding-bottom: 4.5rem;
+  border-top: 0;
+}
+
 .heroGrid {
   display: grid;
-  gap: 1rem;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.heroCopy {
+  display: grid;
+  gap: 1.05rem;
+  justify-items: start;
 }
 
 .eyebrow {
-  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
-  font-weight: 700;
-  color: var(--teal);
-  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 0.92rem;
+  letter-spacing: 0;
 }
 
 .hero h1 {
-  max-width: 14em;
-  font-size: clamp(2.05rem, 5vw, 3.25rem);
-  letter-spacing: -0.02em;
+  max-width: 12em;
+  font-size: clamp(2.6rem, 6vw, 4.25rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
   text-wrap: balance;
 }
 
 .lede,
 .sectionIntro,
 .serviceArea,
-.reassure {
+.reassure,
+.offerText {
   max-width: 38rem;
+  color: var(--muted);
 }
 
 .lede {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
+  line-height: 1.55;
 }
 
-.reassure,
 .serviceArea,
+.reassure,
 .proofMeta,
-.caption {
+.priceNote {
   color: var(--muted);
+}
+
+.heroVisual {
+  margin: 0;
+}
+
+.heroVisual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--card);
+}
+
+.heroActions,
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.35rem;
 }
 
 .sectionHead {
   display: grid;
-  gap: 0.75rem;
-  margin-bottom: 1.6rem;
+  gap: 0.7rem;
+  margin-bottom: 2.25rem;
+  max-width: 40rem;
 }
 
 .sectionHead h2,
-.ctaInner h2 {
-  font-size: clamp(1.7rem, 3vw, 2.2rem);
+.ctaInner h2,
+.featureCopy h2,
+.featureCopy h3 {
+  font-size: clamp(1.7rem, 3vw, 2.15rem);
+  font-weight: 400;
   max-width: 16em;
 }
 
-.actions {
-  display: grid;
-  gap: 0.75rem;
-  margin-top: 0.4rem;
-}
-
 .btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 0.75rem;
-  width: 100%;
-  min-height: 3.5rem;
-  padding: 0.75rem 1rem;
-  border-radius: 12px;
-  border: 2px solid transparent;
+  justify-content: center;
+  gap: 0.6rem;
+  width: auto;
+  min-height: 48px;
+  padding: 0.7rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
   text-decoration: none;
-  text-align: left;
-  line-height: 1.3;
+  text-align: center;
+  line-height: 1.2;
+  font-weight: 600;
 }
 
 .btnPrimary {
-  background: var(--teal);
-  border-color: var(--teal);
+  background: var(--accent);
+  border-color: var(--accent);
   color: var(--white);
 }
 
 .btnPrimary:hover {
-  background: var(--teal-dark);
-  border-color: var(--teal-dark);
-  color: var(--white);
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
 }
 
-.btnLight {
+.btnGhost {
   background: var(--white);
-  border-color: var(--white);
-  color: var(--teal);
+  border-color: #c5d4d8;
+  color: var(--accent);
 }
 
-.btnLight:hover {
-  background: #e7f3f5;
-  border-color: #e7f3f5;
-  color: var(--teal-dark);
+.btnGhost:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
 }
 
 .btnText {
   display: grid;
-  gap: 0.1rem;
+  gap: 0.05rem;
   min-width: 0;
 }
 
 .btnLabel {
-  font-weight: 700;
-  font-size: 1rem;
-  line-height: 1.2;
+  font-weight: 600;
+  font-size: 0.98rem;
 }
 
 .btnDetail {
-  font-family: Lato, "Segoe UI", system-ui, sans-serif;
   font-weight: 400;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   line-height: 1.3;
-  overflow-wrap: anywhere;
 }
 
 .icon {
-  width: 1.35rem;
-  height: 1.35rem;
+  width: 1.15rem;
+  height: 1.15rem;
   flex: 0 0 auto;
+}
+
+.reviewStrip {
+  background: var(--white);
+  padding: 4.5rem 0;
+  scroll-margin-top: 5.5rem;
+}
+
+.reviewStripInner {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+
+.reviewStrip h2 {
+  max-width: 16em;
+  font-size: clamp(1.7rem, 3vw, 2.15rem);
+  font-weight: 400;
 }
 
 .problemList {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.85rem;
+  gap: 1rem;
 }
 
 .packageGrid,
 .proofList,
 .steps {
   display: grid;
-  gap: 0.85rem;
+  gap: 1rem;
 }
 
 .problem,
@@ -404,40 +456,41 @@ body {
   min-width: 0;
 }
 
-.problem {
+.problem,
+.proof {
   display: grid;
-  gap: 0.4rem;
-  padding: 1.1rem 1.1rem 1.15rem 1.15rem;
-  background: var(--paper);
-  border-radius: 12px;
-  border-left: 4px solid var(--teal);
+  gap: 0.45rem;
+  padding: 1.35rem 1.3rem;
+  background: var(--card);
+  border-radius: 18px;
 }
 
 .problem h3,
 .proof h4 {
-  font-size: 1.15rem;
+  font-size: 1.12rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
 }
 
 .problemCta {
   padding: 0;
-  background: var(--teal);
-  border-left-color: var(--cyan);
 }
 
 .problemCta a {
   display: grid;
-  gap: 0.45rem;
+  gap: 0.4rem;
   align-content: center;
   height: 100%;
   min-height: 100%;
-  padding: 1.15rem 1.15rem 1.2rem;
-  color: var(--white);
+  padding: 1.35rem 1.3rem;
+  color: var(--accent);
   text-decoration: none;
+  border-radius: 18px;
 }
 
 .problemCta h3,
 .problemCta p {
-  color: var(--white);
+  color: var(--accent);
 }
 
 .problemCta p {
@@ -446,58 +499,76 @@ body {
 }
 
 .problemCta a:hover {
-  background: var(--teal-dark);
+  background: var(--accent-soft);
 }
 
 .package {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.85rem;
+  background: var(--card);
+  border: 1px solid transparent;
+  border-radius: 22px;
+  padding: 1.6rem 1.35rem 1.35rem;
+}
+
+.packagePopular {
   background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 1.3rem 1.2rem 1.2rem;
+  border: 1px solid var(--accent);
+}
+
+.popularLabel {
+  align-self: flex-start;
+  margin: 0;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .package h3 {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .priceBlock {
   display: grid;
-  gap: 0.2rem;
+  gap: 0.15rem;
 }
 
 .priceLabel {
-  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--teal);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
 }
 
 .price {
-  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
-  font-size: 2.1rem;
-  font-weight: 700;
+  font-size: 2.35rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
   line-height: 1;
   color: var(--ink);
 }
 
 .priceUnit {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 400;
   color: var(--muted);
   margin-left: 0.15rem;
 }
 
 .points {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.45rem;
 }
 
 .points li {
   position: relative;
-  padding-left: 1.15rem;
+  padding-left: 1rem;
 }
 
 .points li::before {
@@ -505,22 +576,20 @@ body {
   position: absolute;
   left: 0;
   top: 0.62em;
-  width: 0.45rem;
-  height: 0.45rem;
+  width: 0.38rem;
+  height: 0.38rem;
   border-radius: 50%;
-  background: var(--teal);
+  background: var(--accent);
 }
 
 .package .btn {
   margin-top: auto;
-  justify-content: center;
-  text-align: center;
+  width: 100%;
 }
 
 .priceNote {
-  margin-top: 1.15rem;
+  margin-top: 1.35rem;
   max-width: 42rem;
-  color: var(--muted);
 }
 
 .step {
@@ -530,19 +599,19 @@ body {
 }
 
 .stepNumber {
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.25rem;
+  height: 2.25rem;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: var(--teal);
-  color: var(--white);
-  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
-  font-weight: 700;
+  background: var(--card);
+  color: var(--accent);
+  font-weight: 600;
 }
 
 .step h3 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  font-weight: 500;
 }
 
 .step h3 a {
@@ -552,20 +621,46 @@ body {
 }
 
 .proofList {
-  margin-top: 1.15rem;
+  margin-top: 2.5rem;
 }
 
-.proof {
+.featureRow {
   display: grid;
-  gap: 0.45rem;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 1.2rem;
+  align-items: center;
+  gap: 2rem;
 }
 
-.proofMeta {
-  font-size: 0.95rem;
+.featureCopy {
+  display: grid;
+  gap: 0.9rem;
+  justify-items: start;
+}
+
+.aboutCopy {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 38rem;
+}
+
+.featureVisual {
+  margin: 0;
+  min-width: 0;
+}
+
+.headshot {
+  display: block;
+  width: min(100%, 280px);
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 24px;
+  object-fit: cover;
+  background: var(--card);
+}
+
+.experienceBlock {
+  margin-top: 4.5rem;
+  padding-top: 4.5rem;
+  border-top: 1px solid var(--line);
 }
 
 .faq details {
@@ -583,7 +678,7 @@ body {
   gap: 1rem;
   cursor: pointer;
   list-style: none;
-  padding: 1rem 0;
+  padding: 1.05rem 0;
   min-height: 3.25rem;
 }
 
@@ -593,17 +688,17 @@ body {
 
 .faq summary h3 {
   font-size: 1.05rem;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: -0.02em;
 }
 
 .faq summary::after {
   content: "+";
   flex-shrink: 0;
-  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
-  font-weight: 700;
-  font-size: 1.4rem;
+  font-weight: 500;
+  font-size: 1.35rem;
   line-height: 1;
-  color: var(--teal);
+  color: var(--accent);
 }
 
 .faq details[open] summary::after {
@@ -613,41 +708,32 @@ body {
 .faqAnswer {
   padding: 0 0 1.15rem;
   max-width: 40rem;
+  color: var(--muted);
 }
 
 .ctaBand {
-  background: var(--teal);
-  color: var(--white);
+  background: var(--accent-soft);
+  border-top: 0;
 }
 
 .ctaInner {
   display: grid;
   gap: 1rem;
-}
-
-.ctaBand h2,
-.ctaBand p {
-  color: var(--white);
-}
-
-.ctaBand :focus-visible {
-  outline-color: var(--white);
+  justify-items: start;
+  max-width: 40rem;
 }
 
 .siteFooter {
-  background: var(--ink);
-  color: #f6f3ec;
+  background: var(--white);
+  color: var(--ink);
   padding: 2.5rem 0 1.5rem;
+  border-top: 1px solid var(--line);
 }
 
 .siteFooter a {
-  color: #ffffff;
+  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 0.15em;
-}
-
-.siteFooter :focus-visible {
-  outline-color: #ffffff;
 }
 
 .footerGrid {
@@ -656,14 +742,18 @@ body {
 }
 
 .footerName {
-  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
-  font-weight: 700;
-  font-size: 1.15rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
 }
 
 .footerBrand {
   display: grid;
   gap: 0.35rem;
+}
+
+.footerBrand p:not(.footerName) {
+  color: var(--muted);
 }
 
 .footerContact {
@@ -678,8 +768,22 @@ body {
   justify-content: space-between;
   margin-top: 1.75rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(246, 243, 236, 0.2);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
   font-size: 0.95rem;
+}
+
+@media (max-width: 699px) {
+  .heroActions,
+  .actions {
+    display: grid;
+    width: 100%;
+  }
+
+  .heroActions .btn,
+  .actions .btn {
+    width: 100%;
+  }
 }
 
 @media (min-width: 480px) {
@@ -692,48 +796,41 @@ body {
   }
 }
 
-@media (min-width: 700px) {
-  .actions {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .actions .btn:last-child {
-    grid-column: 1 / -1;
-  }
-}
-
 @media (min-width: 800px) {
   .wrap {
     width: min(var(--max), calc(100% - 3rem));
   }
 
-  .section {
-    padding: 5rem 0;
+  .section,
+  .reviewStrip {
+    padding: 6.5rem 0;
+  }
+
+  .hero {
+    padding-top: 4.5rem;
   }
 
   .steps {
     grid-template-columns: 1fr 1fr;
   }
+
+  .heroGrid,
+  .featureRow {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 4rem;
+  }
+
+  .featureRowReverse .featureCopy {
+    order: 2;
+  }
 }
 
 @media (min-width: 960px) {
-  .proofList {
+  .problemList,
+  .proofList,
+  .packageGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: stretch;
-  }
-}
-
-@media (min-width: 1040px) {
-  .actions {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .actions .btn:last-child {
-    grid-column: auto;
-  }
-
-  .packageGrid {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   .steps {
@@ -764,16 +861,18 @@ body {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    gap: 0.15rem 0.7rem;
-    font-size: 0.92rem;
+    gap: 0.15rem 1.15rem;
+    font-size: 0.95rem;
   }
 
   .desktopList a {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
+  }
+
+  .desktopList a:hover {
+    color: var(--accent);
   }
 }
 
@@ -795,127 +894,6 @@ body {
   }
 }
 
-.hero {
-  padding-bottom: 1.35rem;
-}
-
-.reviewStrip {
-  background: var(--white);
-  border-top: 4px solid var(--teal);
-  border-bottom: 1px solid var(--line);
-  padding: 1.5rem 0 1.7rem;
-  scroll-margin-top: 7.5rem;
-}
-
-.reviewStripInner {
-  display: grid;
-  gap: 0.8rem;
-}
-
-.reviewStrip h2 {
-  max-width: 16em;
-  font-size: clamp(1.6rem, 3vw, 2.15rem);
-  letter-spacing: -0.02em;
-}
-
-.offerText {
-  max-width: 40rem;
-  font-size: 1.15rem;
-}
-
-.reviewStrip .actions {
-  margin-top: 0.15rem;
-}
-
-.aboutGrid {
-  display: grid;
-  justify-items: start;
-  align-items: center;
-  gap: 1.15rem 1.75rem;
-}
-
-.aboutCopy {
-  display: grid;
-  gap: 0.75rem;
-  max-width: 40rem;
-}
-
-.headshot {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  background: var(--paper-deep);
-  box-shadow: 0 0 0 3px #fff, 0 0 0 4px var(--line);
-}
-
-.heroActions {
-  display: grid;
-  justify-items: stretch;
-  gap: 0.85rem;
-  margin-top: 0.35rem;
-}
-
-.heroActions .btn {
-  width: 100%;
-}
-
-.heroSample {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
-  font-weight: 700;
-  text-underline-offset: 0.18em;
-}
-
-.experienceBlock {
-  margin-top: 2.4rem;
-}
-
-.experienceBlock > h3 {
-  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
-  margin-bottom: 0.7rem;
-}
-
-@media (min-width: 700px) {
-  .aboutGrid {
-    grid-template-columns: 160px minmax(0, 1fr);
-  }
-
-  .heroActions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0.85rem 1.25rem;
-  }
-
-  .heroActions .btn {
-    width: auto;
-  }
-
-  .problemList {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 960px) {
-  .problemList {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 800px) {
-  .hero {
-    padding-bottom: 1.85rem;
-  }
-
-  .reviewStrip {
-    padding: 2rem 0 2.15rem;
-  }
-}
-
 @media print {
   .siteHeader,
   .skip,
@@ -926,13 +904,6 @@ body {
   .ctaBand,
   .siteFooter {
     background: #ffffff;
-    color: #000000;
-  }
-
-  .ctaBand h2,
-  .ctaBand p,
-  .siteFooter,
-  .siteFooter a {
     color: #000000;
   }
 }
