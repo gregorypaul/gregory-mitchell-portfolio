@@ -1,11 +1,7 @@
-import BeforeAfter from "./BeforeAfter.jsx";
 import SummitSample from "./SummitSample.jsx";
+import CaseStudy from "./CaseStudy.jsx";
 import headshotWebp from "../assets/websites/gregory-mitchell-320.webp";
 import headshotJpg from "../assets/websites/gregory-mitchell-320.jpg";
-import eventsBefore640 from "../assets/websites/events-before-640.webp";
-import eventsBefore1200 from "../assets/websites/events-before-1200.webp";
-import eventsAfter640 from "../assets/websites/events-after-640.webp";
-import eventsAfter1200 from "../assets/websites/events-after-1200.webp";
 import heroShot640 from "../assets/websites/summit-home-desktop-640.webp";
 import heroShot1200 from "../assets/websites/summit-home-desktop-1200.webp";
 import {
@@ -18,7 +14,6 @@ import {
   priceNote,
   problems,
   proofPoints,
-  eventsCompare,
   questions,
   reviewOffer,
   reviewSubject,
@@ -144,6 +139,11 @@ function WebsitesPage() {
 
   return (
     <div className="page">
+      <div className="glows" aria-hidden="true">
+        <span className="blob blobBlue" />
+        <span className="blob blobViolet" />
+        <span className="blob blobPeach" />
+      </div>
       <a className="skip" href="#main">
         Skip to content
       </a>
@@ -192,6 +192,8 @@ function WebsitesPage() {
             </p>
           </div>
         </section>
+
+        <CaseStudy />
 
         <SummitSample />
 
@@ -306,40 +308,9 @@ function WebsitesPage() {
                 </picture>
               </figure>
             </div>
-            <div className="experienceBlock featureRow featureRowReverse" id="proof">
-              <div className="featureCopy">
-                <h3>{experienceTitle}</h3>
-                <p className="sectionIntro">{experienceIntro}</p>
-              </div>
-              <div className="featureVisual">
-                <BeforeAfter
-                  before={
-                    <img
-                      src={eventsBefore1200}
-                      srcSet={`${eventsBefore640} 640w, ${eventsBefore1200} 1200w`}
-                      sizes="(min-width: 860px) 240px, 92vw"
-                      alt={eventsCompare.beforeAlt}
-                      width={1200}
-                      height={558}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  }
-                  after={
-                    <img
-                      src={eventsAfter1200}
-                      srcSet={`${eventsAfter640} 640w, ${eventsAfter1200} 1200w`}
-                      sizes="(min-width: 860px) 240px, 92vw"
-                      alt={eventsCompare.afterAlt}
-                      width={1200}
-                      height={643}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  }
-                  caption={eventsCompare.caption}
-                />
-              </div>
+            <div className="experienceBlock" id="proof">
+              <h3>{experienceTitle}</h3>
+              <p className="sectionIntro">{experienceIntro}</p>
             </div>
             <ul className="proofList">
                 {proofPoints.map((item) => (
