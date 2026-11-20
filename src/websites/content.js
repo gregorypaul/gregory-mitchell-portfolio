@@ -58,16 +58,14 @@ export const experienceIntro =
 
 export const caseStudies = [
   {
-    id: "pex",
-    tab: "Video library",
-    caption: "On-demand video library, PEX Network (IQPC)",
+    id: "speakers",
+    tab: "Speaker manager",
+    title: "Event speaker manager, rebuilt",
+    caption: "Event speaker manager, IQPC",
+    description:
+      "I rebuilt IQPC's speaker admin from a cramped legacy list into a clean, searchable table, with photos, status badges, profile completion at a glance, and sorting and bulk actions. It's the same data, now scannable in seconds.",
     afterAlt:
-      "The redesigned PEX Network on-demand video library, with a card grid of video stills",
-    outcomes: [
-      "The grid uses a still for each video instead of the same red play button on every tile.",
-      "Search, tags, topics, and events sit in one filter bar.",
-      "A title and date sit under each still so a person can scan the library.",
-    ],
+      "The rebuilt IQPC event speaker manager, a searchable table with photos, status, and profile completion",
   },
   {
     id: "speaker",

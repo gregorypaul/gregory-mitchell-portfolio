@@ -1,25 +1,25 @@
 import { useId, useState } from "react";
 import styles from "./CaseStudy.module.css";
 import { caseStudies } from "./content.js";
-import pexBefore from "../assets/websites/pex-before.webp";
-import pexBeforeSm from "../assets/websites/pex-before-800.webp";
-import pexAfter from "../assets/websites/pex-after.webp";
-import pexAfterSm from "../assets/websites/pex-after-800.webp";
+import speakersBefore from "../assets/websites/speakers-before.webp";
+import speakersBeforeSm from "../assets/websites/speakers-before-800.webp";
+import speakersAfter from "../assets/websites/speakers-after.webp";
+import speakersAfterSm from "../assets/websites/speakers-after-800.webp";
 import speakerBefore from "../assets/websites/speaker-before.webp";
 import speakerBeforeSm from "../assets/websites/speaker-before-800.webp";
 import speakerAfter from "../assets/websites/speaker-after.webp";
 import speakerAfterSm from "../assets/websites/speaker-after-800.webp";
 
 const IMAGES = {
-  pex: {
-    before: pexBefore,
-    beforeSm: pexBeforeSm,
-    beforeW: 1400,
+  speakers: {
+    before: speakersBefore,
+    beforeSm: speakersBeforeSm,
+    beforeW: 1587,
     beforeSmW: 800,
-    after: pexAfter,
-    afterSm: pexAfterSm,
-    afterW: 1400,
-    height: 700,
+    after: speakersAfter,
+    afterSm: speakersAfterSm,
+    afterW: 1587,
+    height: 2193,
   },
   speaker: {
     before: speakerBefore,
@@ -56,6 +56,7 @@ function Compare({ study }) {
           width={images.afterW}
           height={images.height}
           decoding="async"
+          loading="lazy"
         />
         <div className={styles.clip} style={{ width: `${pos}%` }}>
           <img
@@ -134,11 +135,18 @@ function CaseStudy() {
         </div>
         <div role="tabpanel" id="case-panel" aria-labelledby={`case-tab-${study.id}`}>
           <Compare key={study.id} study={study} />
-          <ul className={styles.outcomes}>
-            {study.outcomes.map((line) => (
-              <li key={line}>{line}</li>
-            ))}
-          </ul>
+          {study.description ? (
+            <>
+              <h3 className={styles.caseTitle}>{study.title}</h3>
+              <p className={styles.caseText}>{study.description}</p>
+            </>
+          ) : (
+            <ul className={styles.outcomes}>
+              {study.outcomes.map((line) => (
+                <li key={line}>{line}</li>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     </section>
