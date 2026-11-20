@@ -1,4 +1,5 @@
 import BeforeAfter from "./BeforeAfter.jsx";
+import SummitSample from "./SummitSample.jsx";
 import headshotWebp from "../assets/websites/gregory-mitchell-320.webp";
 import headshotJpg from "../assets/websites/gregory-mitchell-320.jpg";
 import eventsBefore640 from "../assets/websites/events-before-640.webp";
@@ -15,8 +16,8 @@ import {
   priceNote,
   problems,
   proofPoints,
+  eventsCompare,
   questions,
-  realWork,
   reviewOffer,
   reviewSubject,
   serviceArea,
@@ -181,7 +182,7 @@ function WebsitesPage() {
           </div>
         </section>
 
-        <BeforeAfter />
+        <SummitSample />
 
         <section className="section bandWhite" id="problems">
           <div className="wrap">
@@ -303,37 +304,33 @@ function WebsitesPage() {
                   </li>
                 ))}
               </ul>
-              <figure className="realWork">
-                <div className="realWorkShots">
-                  <figure>
-                    <figcaption>Before</figcaption>
-                    <img
-                      src={eventsBefore1200}
-                      srcSet={`${eventsBefore640} 640w, ${eventsBefore1200} 1200w`}
-                      sizes="(min-width: 700px) 480px, 92vw"
-                      alt={realWork.beforeAlt}
-                      width={1200}
-                      height={558}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </figure>
-                  <figure>
-                    <figcaption>After</figcaption>
-                    <img
-                      src={eventsAfter1200}
-                      srcSet={`${eventsAfter640} 640w, ${eventsAfter1200} 1200w`}
-                      sizes="(min-width: 700px) 480px, 92vw"
-                      alt={realWork.afterAlt}
-                      width={1200}
-                      height={643}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </figure>
-                </div>
-                <figcaption className="realWorkCaption">{realWork.caption}</figcaption>
-              </figure>
+              <BeforeAfter
+                before={
+                  <img
+                    src={eventsBefore1200}
+                    srcSet={`${eventsBefore640} 640w, ${eventsBefore1200} 1200w`}
+                    sizes="(min-width: 740px) 500px, 92vw"
+                    alt={eventsCompare.beforeAlt}
+                    width={1200}
+                    height={558}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                }
+                after={
+                  <img
+                    src={eventsAfter1200}
+                    srcSet={`${eventsAfter640} 640w, ${eventsAfter1200} 1200w`}
+                    sizes="(min-width: 740px) 500px, 92vw"
+                    alt={eventsCompare.afterAlt}
+                    width={1200}
+                    height={643}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                }
+                caption={eventsCompare.caption}
+              />
             </div>
           </div>
         </section>

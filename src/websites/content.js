@@ -56,7 +56,7 @@ export const experienceTitle = "Experience you can count on";
 export const experienceIntro =
   "Before working with local businesses, I spent years running websites that couldn't afford to go down.";
 
-export const realWork = {
+export const eventsCompare = {
   caption:
     "Before and after: an internal events system I redesigned at IQPC, used daily by staff.",
   beforeAlt:
