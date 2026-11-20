@@ -58,6 +58,8 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
+          # Whole Vite build, including dist/websites/index.html (/websites/).
+          # Do not add websites/ to exclude.
           local-dir: ./dist/
           server-dir: ${{ env.FTP_SERVER_DIR }}
           # Leave this false. true deletes everything in server-dir first,

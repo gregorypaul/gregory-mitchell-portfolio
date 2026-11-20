@@ -1,0 +1,86 @@
+.figure {
+  margin: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.pair {
+  display: grid;
+  gap: 1rem;
+}
+
+.slot {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.badge {
+  margin: 0;
+  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal, #0f5c6b);
+}
+
+.placeholder,
+.media {
+  min-height: 11rem;
+  border-radius: 14px;
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  text-align: center;
+  border: 2px dashed var(--line-strong, #8d7f6c);
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--paper, #f6f3ec),
+    var(--paper, #f6f3ec) 12px,
+    var(--paper-deep, #efe8dc) 12px,
+    var(--paper-deep, #efe8dc) 24px
+  );
+}
+
+.placeholderText {
+  margin: 0;
+  display: grid;
+  gap: 0.25rem;
+  color: var(--ink, #1c2430);
+  font-size: 1rem;
+}
+
+.slotName {
+  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
+  font-weight: 700;
+}
+
+.media img,
+.media video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--line, #e4dccf);
+}
+
+.caption {
+  margin: 0;
+  max-width: 40rem;
+  color: var(--muted, #3c4a5a);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 740px) {
+  .pair {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .placeholder,
+  .media {
+    min-height: 16rem;
+  }
+}
