@@ -42,13 +42,15 @@ body {
 .page p,
 .page h1,
 .page h2,
-.page h3 {
+.page h3,
+.page h4 {
   margin: 0;
 }
 
 .page h1,
 .page h2,
-.page h3 {
+.page h3,
+.page h4 {
   font-family: Poppins, "Segoe UI", system-ui, sans-serif;
   line-height: 1.2;
   font-weight: 700;
@@ -383,7 +385,12 @@ body {
   flex: 0 0 auto;
 }
 
-.problemList,
+.problemList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+
 .packageGrid,
 .proofList,
 .steps {
@@ -407,8 +414,39 @@ body {
 }
 
 .problem h3,
-.proof h3 {
+.proof h4 {
   font-size: 1.15rem;
+}
+
+.problemCta {
+  padding: 0;
+  background: var(--teal);
+  border-left-color: var(--cyan);
+}
+
+.problemCta a {
+  display: grid;
+  gap: 0.45rem;
+  align-content: center;
+  height: 100%;
+  min-height: 100%;
+  padding: 1.15rem 1.15rem 1.2rem;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.problemCta h3,
+.problemCta p {
+  color: var(--white);
+}
+
+.problemCta p {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.problemCta a:hover {
+  background: var(--teal-dark);
 }
 
 .package {
@@ -479,6 +517,12 @@ body {
   text-align: center;
 }
 
+.priceNote {
+  margin-top: 1.15rem;
+  max-width: 42rem;
+  color: var(--muted);
+}
+
 .step {
   display: grid;
   gap: 0.45rem;
@@ -508,7 +552,7 @@ body {
 }
 
 .proofList {
-  margin-bottom: 1.5rem;
+  margin-top: 1.15rem;
 }
 
 .proof {
@@ -674,7 +718,7 @@ body {
 
 @media (min-width: 960px) {
   .proofList {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: stretch;
   }
 }
@@ -720,7 +764,8 @@ body {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    gap: 0.35rem 1rem;
+    gap: 0.15rem 0.7rem;
+    font-size: 0.92rem;
   }
 
   .desktopList a {
@@ -744,8 +789,130 @@ body {
   .menu summary,
   .problem,
   .package,
-  .proof {
+  .proof,
+  .problemCta a {
     border: 1px solid ButtonText;
+  }
+}
+
+.hero {
+  padding-bottom: 1.35rem;
+}
+
+.reviewStrip {
+  background: var(--white);
+  border-top: 4px solid var(--teal);
+  border-bottom: 1px solid var(--line);
+  padding: 1.5rem 0 1.7rem;
+  scroll-margin-top: 7.5rem;
+}
+
+.reviewStripInner {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.reviewStrip h2 {
+  max-width: 16em;
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  letter-spacing: -0.02em;
+}
+
+.offerText {
+  max-width: 40rem;
+  font-size: 1.15rem;
+}
+
+.reviewStrip .actions {
+  margin-top: 0.15rem;
+}
+
+.aboutGrid {
+  display: grid;
+  justify-items: start;
+  align-items: center;
+  gap: 1.15rem 1.75rem;
+}
+
+.aboutCopy {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 40rem;
+}
+
+.headshot {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--paper-deep);
+  box-shadow: 0 0 0 3px #fff, 0 0 0 4px var(--line);
+}
+
+.heroActions {
+  display: grid;
+  justify-items: stretch;
+  gap: 0.85rem;
+  margin-top: 0.35rem;
+}
+
+.heroActions .btn {
+  width: 100%;
+}
+
+.heroSample {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
+  font-weight: 700;
+  text-underline-offset: 0.18em;
+}
+
+.experienceBlock {
+  margin-top: 2.4rem;
+}
+
+.experienceBlock > h3 {
+  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
+  margin-bottom: 0.7rem;
+}
+
+@media (min-width: 700px) {
+  .aboutGrid {
+    grid-template-columns: 160px minmax(0, 1fr);
+  }
+
+  .heroActions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.85rem 1.25rem;
+  }
+
+  .heroActions .btn {
+    width: auto;
+  }
+
+  .problemList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .problemList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 800px) {
+  .hero {
+    padding-bottom: 1.85rem;
+  }
+
+  .reviewStrip {
+    padding: 2rem 0 2.15rem;
   }
 }
 

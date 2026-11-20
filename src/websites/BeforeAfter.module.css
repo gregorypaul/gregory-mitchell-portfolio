@@ -1,5 +1,5 @@
 .figure {
-  margin: 0;
+  margin: 1.5rem 0 0;
   display: grid;
   gap: 0.85rem;
 }
@@ -12,6 +12,7 @@
 .slot {
   display: grid;
   gap: 0.45rem;
+  min-width: 0;
 }
 
 .badge {
@@ -24,38 +25,9 @@
   color: var(--teal, #0f5c6b);
 }
 
-.placeholder,
 .media {
-  min-height: 11rem;
+  min-width: 0;
   border-radius: 14px;
-}
-
-.placeholder {
-  display: grid;
-  place-items: center;
-  padding: 1.25rem;
-  text-align: center;
-  border: 2px dashed var(--line-strong, #8d7f6c);
-  background: repeating-linear-gradient(
-    -45deg,
-    var(--paper, #f6f3ec),
-    var(--paper, #f6f3ec) 12px,
-    var(--paper-deep, #efe8dc) 12px,
-    var(--paper-deep, #efe8dc) 24px
-  );
-}
-
-.placeholderText {
-  margin: 0;
-  display: grid;
-  gap: 0.25rem;
-  color: var(--ink, #1c2430);
-  font-size: 1rem;
-}
-
-.slotName {
-  font-family: Poppins, "Segoe UI", system-ui, sans-serif;
-  font-weight: 700;
 }
 
 .media img,
@@ -65,6 +37,7 @@
   height: auto;
   border-radius: 14px;
   border: 1px solid var(--line, #e4dccf);
+  background: var(--white, #fff);
 }
 
 .caption {
@@ -77,10 +50,5 @@
 @media (min-width: 740px) {
   .pair {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .placeholder,
-  .media {
-    min-height: 16rem;
   }
 }
