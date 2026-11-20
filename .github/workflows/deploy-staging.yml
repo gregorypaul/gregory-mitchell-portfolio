@@ -58,6 +58,10 @@ jobs:
         run: |
           printf 'User-agent: *\nDisallow: /\n' > dist/robots.txt
           find dist -name '*.html' -print0 | xargs -0 sed -i 's|<head>|<head>\n    <meta name="robots" content="noindex, nofollow">|'
+          # cPanel Directory Privacy owns .htaccess in public_html/staging.
+          # Never upload one from this build.
+          find dist -name '.htaccess' -delete
+          find dist -name '.htpasswd' -delete
 
       - name: Set staging server directory
         run: |
@@ -76,14 +80,20 @@ jobs:
           local-dir: ./dist/
           server-dir: ${{ env.FTP_STAGING_DIR }}
           state-name: .ftp-deploy-sync-state-staging.json
-          # Leave this false. true deletes everything in server-dir first,
-          # including excluded paths such as the dishly folder and .htaccess.
+          # Must stay false. true deletes everything in server-dir first,
+          # including the cPanel Directory Privacy .htaccess and .htpasswd.
           dangerous-clean-slate: false
+          # Excluded paths are left out of both upload and delete.
+          # .htpasswd normally lives outside public_html; exclude it anyway
+          # so a copy inside staging/ is never replaced.
           exclude: |
             **/.git*
             **/.git*/**
             **/node_modules/**
             **/.htaccess
+            **/.htpasswd
+            .htaccess
+            .htpasswd
             **/dishly/**
             **/movie-app/**
             **/bon-appetit/**
