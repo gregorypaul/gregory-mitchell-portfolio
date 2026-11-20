@@ -1,5 +1,5 @@
 import experiences from "../data/experiences";
-import { mailtoHref } from "../data/site";
+import { mailtoHref, siteConfig } from "../data/site";
 
 /**
  * Plain-language copy for the local-business page.
@@ -36,6 +36,44 @@ export const reviewSubject = "Free website review";
 
 export const serviceArea =
   "Lake Elsinore, Murrieta, Temecula, Menifee, Corona, and the rest of the Inland Empire";
+
+export const reviewOffer = {
+  title: "Get a free 15-minute site review",
+  text: "No obligation. Gregory looks at your live site with you and points out what he'd fix first.",
+};
+
+export const aboutTitle = "Who you'll work with";
+
+export const aboutParagraphs = [
+  `${siteConfig.name} is a web developer based in ${siteConfig.city} with 10+ years of experience, including 7+ years as lead full-stack engineer at IQPC.`,
+  "He works directly with the owner. No agency handoffs.",
+  "He is local to Lake Elsinore, Murrieta, Temecula, Menifee, and Corona.",
+];
+
+export const sampleCopy = {
+  sectionTitle: "Before and after",
+  sectionIntro:
+    "The before side is an illustration of a typical old site, not a real business. The after side is a demo I built so you can see the kind of site you would get.",
+  beforeTitle: "Typical outdated small-business site (illustration)",
+  beforeNote:
+    "Not a real business. Tiny type, no tap-to-call, an outdated look, and a Not secure warning.",
+  afterTitle:
+    "Sample site: Summit Air Heating & Cooling (a demo business I built to show what you'd get)",
+  desktopCaption: "Desktop",
+  phoneCaption: "Phone",
+  serviceCaption: "Services page on the same sample site",
+  changedTitle: "What changed",
+  changedNote:
+    "Shows up on Google means the basics are in place: a clear page, the right words, a fast load, and a site that works on a phone. I do not promise the top spot.",
+  demoLink: "See the live demo",
+};
+
+export const sampleCallouts = [
+  "Tap-to-call",
+  "Fast on phones",
+  "Clear services",
+  "Shows up on Google",
+];
 
 export const navLinks = [
   { href: "#problems", label: "Problems" },

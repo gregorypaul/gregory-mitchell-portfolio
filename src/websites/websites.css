@@ -749,6 +749,76 @@ body {
   }
 }
 
+.hero {
+  padding-bottom: 1.35rem;
+}
+
+.reviewStrip {
+  background: var(--white);
+  border-top: 4px solid var(--teal);
+  border-bottom: 1px solid var(--line);
+  padding: 1.5rem 0 1.7rem;
+  scroll-margin-top: 7.5rem;
+}
+
+.reviewStripInner {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.reviewStrip h2 {
+  max-width: 16em;
+  font-size: clamp(1.6rem, 3vw, 2.15rem);
+  letter-spacing: -0.02em;
+}
+
+.offerText {
+  max-width: 40rem;
+  font-size: 1.15rem;
+}
+
+.reviewStrip .actions {
+  margin-top: 0.15rem;
+}
+
+.aboutGrid {
+  display: grid;
+  justify-items: start;
+  align-items: center;
+  gap: 1.15rem 1.75rem;
+}
+
+.aboutCopy {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 40rem;
+}
+
+.headshot {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--paper-deep);
+  box-shadow: 0 0 0 3px #fff, 0 0 0 4px var(--line);
+}
+
+@media (min-width: 700px) {
+  .aboutGrid {
+    grid-template-columns: 160px minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 800px) {
+  .hero {
+    padding-bottom: 1.85rem;
+  }
+
+  .reviewStrip {
+    padding: 2rem 0 2.15rem;
+  }
+}
+
 @media print {
   .siteHeader,
   .skip,

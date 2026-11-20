@@ -1,10 +1,15 @@
 import BeforeAfter from "./BeforeAfter.jsx";
+import headshotWebp from "../assets/websites/gregory-mitchell-320.webp";
+import headshotJpg from "../assets/websites/gregory-mitchell-320.jpg";
 import {
+  aboutParagraphs,
+  aboutTitle,
   navLinks,
   packages,
   problems,
   proofPoints,
   questions,
+  reviewOffer,
   reviewSubject,
   serviceArea,
   steps,
@@ -143,9 +148,43 @@ function WebsitesPage() {
             <p className="lede">
               Local web developer in {siteConfig.city}, with 10+ years of experience.
             </p>
+            <p className="serviceArea">For business owners in {serviceArea}.</p>
+          </div>
+        </section>
+
+        <section className="reviewStrip" id="free-review" aria-labelledby="free-review-title">
+          <div className="wrap reviewStripInner">
+            <h2 id="free-review-title">{reviewOffer.title}</h2>
+            <p className="offerText">{reviewOffer.text}</p>
             <ContactActions />
             <p className="reassure">I answer the phone and read the email myself.</p>
-            <p className="serviceArea">For business owners in {serviceArea}.</p>
+          </div>
+        </section>
+
+        <section className="section" id="about" aria-labelledby="about-title">
+          <div className="wrap">
+            <div className="sectionHead">
+              <h2 id="about-title">{aboutTitle}</h2>
+            </div>
+            <div className="aboutGrid">
+              <picture>
+                <source srcSet={headshotWebp} type="image/webp" />
+                <img
+                  className="headshot"
+                  src={headshotJpg}
+                  alt={siteConfig.name}
+                  width={160}
+                  height={160}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+              <div className="aboutCopy">
+                {aboutParagraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
@@ -243,12 +282,12 @@ function WebsitesPage() {
                 </li>
               ))}
             </ul>
-            {/* TODO: Pass real before/after images once a client approves. */}
-            <BeforeAfter />
           </div>
         </section>
 
-        <section className="section bandWhite" id="questions">
+        <BeforeAfter />
+
+        <section className="section" id="questions">
           <div className="wrap">
             <div className="sectionHead">
               <h2>Common questions</h2>
